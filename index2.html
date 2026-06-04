@@ -1,0 +1,1994 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nitya Patil's portfolio — Industrial & Systems Engineer at Georgia Tech with expertise in analytics, data visualization, and fintech. Explore case studies, data viz projects, and creative TouchDesigner work.">
+    <meta name="theme-color" content="#ff3b93">
+    <meta name="keywords" content="Industrial Engineering, Data Science, Analytics, FinTech, Georgia Tech">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nityapatil.com">
+    <meta property="og:title" content="Nitya Patil">
+    <meta property="og:description" content="Portfolio of Nitya Patil — Analytics, Data Visualization, and Creative Technology">
+    <meta property="og:image" content="https://nityapatil.com/og-image.png">
+    
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://nityapatil.com">
+    <meta property="twitter:title" content="Nitya Patil">
+    <meta property="twitter:description" content="Portfolio of Nitya Patil — Analytics, Data Visualization, and Creative Technology">
+    <meta property="twitter:image" content="https://nityapatil.com/og-image.png">
+    
+    <link rel="canonical" href="https://nityapatil.com">
+    
+    <title>Nitya Patil | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#fbf9f5',
+                        cyberpink: '#ff3b93',
+                        ink: '#111111',
+                    },
+                    fontFamily: {
+                        sans: ['Helvetica Neue', 'Arial', 'sans-serif'],
+                        mono: ['Courier New', 'Courier', 'monospace'],
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        scaleIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.95)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' },
+                        }
+                    },
+                    animation: {
+                        fadeIn: 'fadeIn 0.3s ease-in-out',
+                        slideUp: 'slideUp 0.4s ease-out',
+                        scaleIn: 'scaleIn 0.3s ease-out',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Respect prefers-reduced-motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        .tech-border { border-color: rgba(17, 17, 17, 0.15); }
+        .glitch-hover:hover { color: #ff3b93; transition: color 0.2s ease; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Global Canvas Interaction & Particle Infrastructure */
+        #global-interaction-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: multiply;
+        }
+
+        /* Reduce motion for canvas if user prefers it */
+        @media (prefers-reduced-motion: reduce) {
+            #global-interaction-canvas {
+                display: none;
+            }
+        }
+
+        /* TouchDesigner Interactive Art Element Canvas Styling */
+        .art-canvas-card {
+            background-image: linear-gradient(rgba(251, 249, 245, 0.88), rgba(251, 249, 245, 0.88)), url('image_105fa1.jpg');
+            background-size: cover;
+            background-position: center;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .art-canvas-card:hover {
+            background-image: linear-gradient(rgba(255, 59, 147, 0.12), rgba(17, 17, 17, 0.8)), url('image_105fa1.jpg');
+            color: #fbf9f5 !important;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px -10px rgba(255, 59, 147, 0.25);
+        }
+
+        /* Name Hover Interactive Text Effect */
+        .interactive-name-container {
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+        }
+        .name-glitch-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+        .interactive-name-container:hover .name-glitch-layer {
+            display: block;
+            animation: glitch-skew 1s infinite linear alternate-reverse;
+        }
+        .interactive-name-container:hover .name-main-text {
+            color: transparent;
+            -webkit-text-stroke: 2px #111111;
+        }
+
+        @keyframes glitch-skew {
+            0% { transform: skew(0deg); text-shadow: 2px 0 #ff3b93; }
+            20% { transform: skew(-3deg); text-shadow: -3px 0 #111111; }
+            40% { transform: skew(4deg); text-shadow: 3px 0 #ff3b93; }
+            60% { transform: skew(-1deg); text-shadow: -1px 0 #111111; }
+            80% { transform: skew(3deg); text-shadow: 2px 0 #ff3b93; }
+            100% { transform: skew(0deg); text-shadow: -2px 0 #ff3b93; }
+        }
+
+        /* Reduce glitch motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            .interactive-name-container:hover .name-glitch-layer {
+                animation: none;
+                display: none;
+            }
+        }
+
+        /* Modern Aesthetic Layout Additions */
+        .metric-card {
+            background: #ffffff;
+            border: 1px solid rgba(17, 17, 17, 0.08);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .metric-card:hover {
+            border-color: #ff3b93;
+            transform: translateY(-2px);
+        }
+
+        /* Modal Animations */
+        .modal-enter {
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal-scale {
+            animation: scaleIn 0.3s ease-out;
+        }
+
+        /* Image Fallback Styling */
+        .img-placeholder {
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 14px;
+        }
+
+        /* Improved responsive text */
+        @media (max-width: 768px) {
+            .text-\[10px\] {
+                font-size: 11px;
+            }
+            .text-xs {
+                font-size: 12px;
+            }
+        }
+
+        /* Scroll to top button */
+        #scroll-to-top {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        #scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Skip to main content link (accessibility) */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #ff3b93;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+    </style></head><body class="bg-cream text-ink font-sans selection:bg-cyberpink selection:text-white min-h-screen flex flex-col justify-between relative overflow-x-hidden">
+
+    <a href="#home-view" class="skip-link">Skip to main content</a>
+
+    <div class="bg-ink text-cream font-mono text-[11px] md:text-[10px] uppercase tracking-widest px-4 md:px-6 py-2 flex justify-between items-center border-b border-zinc-800 z-50 overflow-x-auto">
+        <div class="flex items-center gap-2 flex-shrink-0">
+            <span class="w-2 h-2 rounded-full bg-green-400"></span>
+            <span>SYSTEM: OPERATIONAL</span>
+        </div>
+        <div class="hidden md:flex gap-4 items-center flex-shrink-0 ml-4">
+            <span class="hidden xl:inline">LOC: ATLANTA, GA // </span>
+            <span id="live-clock">00:00:00</span>
+        </div>
+    </div>
+
+    <canvas id="global-interaction-canvas" aria-hidden="true"></canvas>
+
+    <header class="border-b tech-border w-full uppercase tracking-widest text-xs md:text-xs px-4 md:px-6 py-4 flex justify-between items-center font-mono sticky top-0 bg-cream/90 backdrop-blur-sm z-50">
+        <div class="font-bold text-sm"><a href="#" onclick="showHome(event)">Nitya Patil // 2025 — Present</a></div>
+        <nav class="flex space-x-4 md:space-x-6">
+            <a href="#about" onclick="showHome(event)" class="hover:underline hover:text-cyberpink transition-colors">About</a>
+            <a href="#work" onclick="showHome(event)" class="hover:underline hover:text-cyberpink transition-colors">Work</a>
+            <a href="#creative" class="hover:underline hover:text-cyberpink transition-colors">Creative</a>
+        </nav>
+    </header>
+
+    <div id="home-view" class="flex-grow">
+        <section id="about" class="grid grid-cols-1 md:grid-cols-12 border-b tech-border">
+            <div class="md:col-span-8 p-6 md:p-12 flex flex-col justify-between border-r tech-border min-h-[60vh] md:min-h-[70vh]">
+                <div class="mt-4">
+                    <div class="interactive-name-container mb-8" onmouseenter="triggerNameBurst(event)">
+                        <h1 class="text-5xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter leading-none name-main-text transition-all duration-200">
+                            Nitya Patil.
+                        </h1>
+                        <h1 class="text-5xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter leading-none name-glitch-layer text-cyberpink select-none">
+                            Nitya Patil.
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-end mt-8">
+                    <div class="max-w-xl font-mono text-xs md:text-sm lg:text-base text-zinc-600 space-y-3">
+                        <p class="text-xs uppercase text-zinc-500 font-bold tracking-wider">// Academic coordinates</p>
+                        <p class="font-sans text-lg md:text-xl lg:text-2xl font-bold text-ink tracking-tight">Optimizing systems. Designing interactive algorithmic paradigms.</p>
+                        <div class="pt-2 space-y-1.5 text-xs md:text-sm">
+                            <p>→ <span class="text-zinc-500">Major:</span> Industrial & Systems Engineering</p>
+                            <p>→ <span class="text-zinc-500">Focus:</span> Analytics & Data Science</p>
+                            <p>→ <span class="text-zinc-500">Minor:</span> Financial Technology</p>
+                            <p>→ <span class="text-cyberpink font-bold">Georgia Institute of Technology 🐝</span></p>
+                        </div>
+                    </div>
+                    <div class="font-mono text-xs md:text-sm text-zinc-500 max-w-sm md:justify-self-end border border-ink/10 p-4 bg-zinc-50/50 rounded-sm">
+                        <span class="text-ink font-bold block mb-1">HIGH LEVEL:</span>
+                        Bridging operations research, quantitative mathematical architecture, and visceral visual logic systems.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="md:col-span-4 p-6 md:p-12 flex flex-col justify-between bg-zinc-50">
+                <div class="font-mono text-xs uppercase tracking-wider text-zinc-500 mb-4">
+                    // Manifest
+                    <p class="text-ink text-sm italic mt-2 normal-case">"Opportunities don't happen, you create them."</p>
+                </div>
+                
+                <div class="w-full flex justify-center py-2 relative opacity-80 group">
+                    <svg class="w-48 h-56 text-ink/20 group-hover:text-cyberpink/30 transition-colors duration-500" viewBox="0 0 100 120" fill="none" stroke="currentColor" stroke-width="0.35" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="10" y1="60" x2="90" y2="60" stroke-dasharray="1 3" stroke-width="0.15" />
+                        <line x1="50" y1="10" x2="50" y2="110" stroke-dasharray="1 3" stroke-width="0.15" />
+                        
+                        <path d="M50,60 Q48,85 45,110" />
+                        <path d="M48,80 Q35,75 30,68" stroke-width="0.2" />
+                        <path d="M47,92 Q62,88 68,80" stroke-width="0.2" />
+                        
+                        <path d="M50,60 Q48,32 42,15" stroke-width="0.25" />
+                        <path d="M50,60 Q51,34 56,16" stroke-width="0.25" />
+                        <path d="M50,60 Q43,40 38,26" stroke-width="0.2" />
+                        <path d="M50,60 Q55,42 62,27" stroke-width="0.2" />
+                        
+                        <circle cx="42" cy="15" r="1.2" fill="none" stroke-width="0.3" />
+                        <circle cx="56" cy="16" r="1.2" fill="none" stroke-width="0.3" />
+                        <circle cx="38" cy="26" r="0.9" fill="none" stroke-width="0.3" />
+                        <circle cx="62" cy="27" r="0.9" fill="none" stroke-width="0.3" />
+
+                        <path d="M50,60 Q32,70 15,75 Q35,88 50,60" />
+                        <path d="M50,60 Q34,74 15,75" stroke-width="0.15" stroke-dasharray="0.5 1" />
+                        <path d="M32,70 Q38,79 50,60" stroke-width="0.15" stroke-dasharray="1 1" />
+                        
+                        <path d="M50,60 Q72,66 90,62 Q75,82 50,60" />
+                        <path d="M50,60 Q73,69 90,62" stroke-width="0.15" stroke-dasharray="0.5 1" />
+                        
+                        <path d="M50,60 Q28,45 10,32 Q32,52 50,60" />
+                        <path d="M50,60 Q29,48 10,32" stroke-width="0.15" stroke-dasharray="0.5 1" />
+                        
+                        <path d="M50,60 Q78,42 95,45 Q70,58 50,60" />
+                        <path d="M50,60 Q76,47 95,45" stroke-width="0.15" stroke-dasharray="0.5 1" />
+                        
+                        <path d="M50,60 Q32,30 35,10 Q45,35 50,60" />
+                        <path d="M50,60 Q65,32 68,12 Q53,38 50,60" />
+                        
+                        <path d="M50,60 Q52,22 48,5 Q40,30 50,60" opacity="0.4" />
+                        <path d="M50,60 Q20,60 22,48 Q38,55 50,60" opacity="0.4" />
+                        <path d="M50,60 Q80,55 78,40 Q68,52 50,60" opacity="0.4" />
+                        
+                        <circle cx="50" cy="60" r="6" stroke-dasharray="0.5 1.5" />
+                        <circle cx="50" cy="60" r="14" stroke-dasharray="1 2" />
+                    </svg>
+                </div>
+
+                <div class="mb-8">
+                    <button onclick="openResumeModal()" class="inline-block bg-ink text-cream font-mono text-xs uppercase tracking-wider px-4 py-3 hover:bg-cyberpink transition-colors w-full text-center">
+                        View Resume ↗
+                    </button>
+                </div>
+
+                <div class="border-t tech-border pt-4 font-mono text-xs uppercase tracking-wider space-y-2">
+                    <span class="text-zinc-500 block text-[10px] md:text-xs">[Contact me]</span>
+                    <a href="https://www.linkedin.com/in/nityapatil" target="_blank" rel="noopener noreferrer" class="block glitch-hover">🌺 LinkedIn ↗</a>
+                    <a href="https://github.com/nityapatil77/viz-projects" target="_blank" rel="noopener noreferrer" class="block glitch-hover">🐱 GitHub ↗</a>
+                    <a href="mailto:npatil70@gatech.edu" class="block glitch-hover">💌 Email ↗</a>
+                    <a href="https://nityapatil.substack.com/" target="_blank" rel="noopener noreferrer" class="block glitch-hover text-cyberpink font-bold">Substack ↗</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-3 border-b tech-border text-xs font-mono uppercase tracking-wider bg-ink text-cream">
+            <div class="p-6 border-r border-zinc-800"><span class="text-cyberpink mr-2">[01]</span> Analytics & Data Science</div>
+            <div class="p-6 border-r border-zinc-800"><span class="text-cyberpink mr-2">[02]</span> Financial Technology</div>
+            <div class="p-6"><span class="text-cyberpink mr-2">[03]</span> Creative Systems Architecture</div>
+        </section>
+
+        <section id="work" class="border-b tech-border">
+            <div class="p-6 border-b tech-border uppercase font-mono text-xs tracking-widest text-zinc-500">
+                <span>Selected Portfolios // Core Pillars</span>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3">
+                <div onclick="toggleSubGrid('case-studies-sub-grid', ['datavis-sub-grid', 'passion-sub-grid'])" class="group border-r last:border-r-0 tech-border p-6 block hover:bg-zinc-50 cursor-pointer transition-colors relative">
+                    <div class="aspect-video bg-zinc-900 border tech-border overflow-hidden mb-4 flex items-center justify-center relative">
+                        <img src="image_1e02be.jpg" alt="Case Studies Trigger" class="w-full h-full object-cover opacity-40 filter grayscale transition-all duration-500" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder w-full h-full\'>Case Studies</div>'">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="bg-ink text-cream font-mono text-xs tracking-widest uppercase px-3 py-1.5 border border-zinc-700">Explore Collection ↓</span>
+                        </div>
+                    </div>
+                    <div class="font-mono text-xs md:text-[10px] text-cyberpink uppercase tracking-widest font-bold">[ Click to Expand ]</div>
+                    <h3 class="font-black uppercase text-lg md:text-xl tracking-tight mt-1">Product & User Case Studies</h3>
+                    <p class="text-xs text-zinc-600 font-mono mt-1">Four strategic frameworks mapping deployment workflows and user systems.</p>
+                </div>
+
+                <div onclick="toggleSubGrid('datavis-sub-grid', ['case-studies-sub-grid', 'passion-sub-grid'])" class="group border-r last:border-r-0 tech-border p-6 block hover:bg-zinc-50 cursor-pointer transition-colors relative">
+                    <div class="aspect-video bg-zinc-900 border tech-border overflow-hidden mb-4 flex items-center justify-center relative">
+                        <img src="image_1d8649.jpg" alt="Data Vis Trigger" class="w-full h-full object-cover opacity-40 filter grayscale transition-all duration-500" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder w-full h-full\'>Data Visualizations</div>'">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="bg-ink text-cream font-mono text-xs tracking-widest uppercase px-3 py-1.5 border border-zinc-700">Explore Collection ↓</span>
+                        </div>
+                    </div>
+                    <div class="font-mono text-xs md:text-[10px] text-cyberpink uppercase tracking-widest font-bold">[ Click to Expand ]</div>
+                    <h3 class="font-black uppercase text-lg md:text-xl tracking-tight mt-1">Data Visualizations</h3>
+                    <p class="text-xs text-zinc-600 font-mono mt-1">Transforming quantitative variables, predictive insights, and schemas into interactive design.</p>
+                </div>
+
+                <div onclick="toggleSubGrid('passion-sub-grid', ['case-studies-sub-grid', 'datavis-sub-grid'])" class="group p-6 block hover:bg-zinc-50 cursor-pointer transition-colors relative">
+                    <div class="aspect-video bg-zinc-900 border tech-border overflow-hidden mb-4 flex items-center justify-center relative">
+                        <img src="shoes.jpg" alt="Passion Projects Trigger" class="w-full h-full object-cover opacity-40 filter grayscale transition-all duration-500" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder w-full h-full\'>Passion Projects</div>'">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="bg-ink text-cream font-mono text-xs tracking-widest uppercase px-3 py-1.5 border border-zinc-700">Explore Collection ↓</span>
+                        </div>
+                    </div>
+                    <div class="font-mono text-xs md:text-[10px] text-cyberpink uppercase tracking-widest font-bold">[ Click to Expand ]</div>
+                    <h3 class="font-black uppercase text-lg md:text-xl tracking-tight mt-1">Passion Projects</h3>
+                    <p class="text-xs text-zinc-600 font-mono mt-1">Experimental technical products bridging operational logic and statistical evaluation.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="case-studies-sub-grid" class="hidden border-b tech-border bg-zinc-50/50 transition-all modal-enter">
+            <div class="p-6 border-b tech-border uppercase font-mono text-xs tracking-widest text-cyberpink flex justify-between bg-white">
+                <span>Select a specific Case Study below:</span>
+                <span class="cursor-pointer font-bold hover:underline text-ink" onclick="closeGrid('case-studies-sub-grid')">[ Close Panel × ]</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+                <div onclick="showWorkspace('case-gha')" class="group border-r last:border-r-0 tech-border p-4 block bg-white hover:bg-zinc-100 cursor-pointer transition-colors">
+                    <div class="aspect-square bg-zinc-200 overflow-hidden relative mb-4 border tech-border">
+                        <img src="image_1e02be.jpg" alt="Global Health Action" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300" loading="lazy" onerror="this.classList.add('hidden'); this.parentElement.innerHTML='<div class=\'img-placeholder w-full h-full text-sm\'>GHA</div>'">
+                    </div>
+                    <div class="font-mono text-xs md:text-[10px] text-zinc-500 uppercase">Global Health Action</div>
+                    <h4 class="font-bold uppercase text-xs md:text-sm tracking-wide group-hover:text-cyberpink transition-colors">CRM Migration & Data Optimization</h4>
+                </div>
+                <div onclick="showWorkspace('case-compudopt')" class="group border-r last:border-r-0 tech-border p-4 block bg-white hover:bg-zinc-100 cursor-pointer transition-colors">
+                    <div class="aspect-square bg-zinc-200 overflow-hidden relative mb-4 border tech-border">
+                        <img src="image_1e02a0.jpg" alt="Compudopt" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300" loading="lazy" onerror="this.classList.add('hidden'); this.parentElement.innerHTML='<div class=\'img-placeholder w-full h-full text-sm\'>Compudopt</div>'">
+                    </div>
+                    <div class="font-mono text-xs md:text-[10px] text-zinc-500 uppercase">Compudopt</div>
+                    <h4 class="font-bold uppercase text-xs md:text-sm tracking-wide group-hover:text-cyberpink transition-colors">Recruitment, Engagement & Retention</h4>
+                </div>
+                <div onclick="showWorkspace('case-mission')" class="group border-r last:border-r-0 tech-border p-4 block bg-white hover:bg-zinc-100 cursor-pointer transition-colors">
+                    <div class="aspect-square bg-zinc-200 overflow-hidden relative mb-4 border tech-border">
+                        <img src="image_1e01ca.jpg" alt="Atlanta Mission" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300" loading="lazy" onerror="this.classList.add('hidden'); this.parentElement.innerHTML='<div class=\'img-placeholder w-full h-full text-sm\'>Atlanta Mission</div>'">
+                    </div>
+                    <div class="font-mono text-xs md:text-[10px] text-zinc-500 uppercase">Atlanta Mission</div>
+                    <h4 class="font-bold uppercase text-xs md:text-sm tracking-wide group-hover:text-cyberpink transition-colors">Strategic Housing Solutions</h4>
+                </div>
+                <div onclick="showWorkspace('case-photos')" class="group p-4 block bg-white hover:bg-zinc-100 cursor-pointer transition-colors">
+                    <div class="aspect-square bg-zinc-200 overflow-hidden relative mb-4 border tech-border">
+                        <img src="image_1dfa42.jpg" alt="Improving Google Photos" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300" loading="lazy" onerror="this.classList.add('hidden'); this.parentElement.innerHTML='<div class=\'img-placeholder w-full h-full text-sm\'>Google Photos</div>'">
+                    </div>
+                    <div class="font-mono text-xs md:text-[10px] text-zinc-500 uppercase">Product Design</div>
+                    <h4 class="font-bold uppercase text-xs md:text-sm tracking-wide group-hover:text-cyberpink transition-colors">Improving Google Photos</h4>
+                </div>
+            </div>
+        </section>
+
+        <section id="datavis-sub-grid" class="hidden border-b tech-border bg-zinc-50/50 transition-all modal-enter">
+            <div class="p-6 border-b tech-border uppercase font-mono text-xs tracking-widest text-cyberpink flex justify-between bg-white">
+                <span>Select a Data Visualization study below:</span>
+                <span class="cursor-pointer font-bold hover:underline text-ink" onclick="closeGrid('datavis-sub-grid')">[ Close Panel × ]</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+                <div onclick="showWorkspace('vis-nyc')" class="group border-r last:border-r-0 tech-border p-6 block bg-white hover:bg-zinc-100 cursor-pointer transition-colors">
+                    <div class="aspect-video max-h-64 bg-zinc-200 overflow-hidden relative mb-4 border tech-border">
+                        <img src="image_1d8649.jpg" alt="NYC Crime Rates vs Education" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300" loading="lazy" onerror="this.classList.add('hidden'); this.parentElement.innerHTML='<div class=\'img-placeholder w-full h-full text-sm\'>NYC Analysis</div>'">
+                    </div>
+                    <div class="font-mono text-xs md:text-[10px] text-zinc-500 uppercase">Analytical Methodology & Mapping</div>
+                    <h4 class="font-bold uppercase text-sm md:text-base tracking-wide group-hover:text-cyberpink transition-colors">NYC Crime Rates vs Education</h4>
+                </div>
+                <div onclick="showWorkspace('vis-airline')" class="group p-6 block bg-white hover:bg-zinc-100 cursor-pointer transition-colors">
+                    <div class="aspect-video max-h-64 bg-zinc-200 overflow-hidden relative mb-4 border tech-border">
+                        <img src="image_1d8621.jpg" alt="Global Airline Coordination System" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300" loading="lazy" onerror="this.classList.add('hidden'); this.parentElement.innerHTML='<div class=\'img-placeholder w-full h-full text-sm\'>Airline System</div>'">
+                    </div>
+                    <div class="font-mono text-xs md:text-[10px] text-zinc-500 uppercase">Relational Database Analytics</div>
+                    <h4 class="font-bold uppercase text-sm md:text-base tracking-wide group-hover:text-cyberpink transition-colors">Global Airline Coordination System</h4>
+                </div>
+            </div>
+        </section>
+
+        <section id="passion-sub-grid" class="hidden border-b tech-border bg-zinc-50/50 transition-all modal-enter">
+            <div class="p-6 border-b tech-border uppercase font-mono text-xs tracking-widest text-cyberpink flex justify-between bg-white">
+                <span>Select a specific Passion Project research log below:</span>
+                <span class="cursor-pointer font-bold hover:underline text-ink" onclick="closeGrid('passion-sub-grid')">[ Close Panel × ]</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+                <div onclick="showWorkspace('passion-ncaa')" class="group border-r last:border-r-0 tech-border p-4 block bg-white hover:bg-zinc-100 cursor-pointer transition-colors">
+                    <div class="aspect-square bg-zinc-200 overflow-hidden relative mb-4 border tech-border">
+                        <img src="shoes.jpg" alt="NCAA Graduation Rate Analysis" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300" loading="lazy" onerror="this.classList.add('hidden'); this.parentElement.innerHTML='<div class=\'img-placeholder w-full h-full text-sm\'>NCAA</div>'">
+                    </div>
+                    <div class="font-mono text-xs md:text-[10px] text-zinc-500 uppercase">Statistical Modeling Log</div>
+                    <h4 class="font-bold uppercase text-xs md:text-sm tracking-wide group-hover:text-cyberpink transition-colors">NCAA Graduation Rate Analysis</h4>
+                </div>
+                <div onclick="showWorkspace('passion-profit')" class="group border-r last:border-r-0 tech-border p-4 block bg-white hover:bg-zinc-100 cursor-pointer transition-colors">
+                    <div class="aspect-square bg-zinc-200 overflow-hidden relative mb-4 border tech-border">
+                        <img src="profit.jpg" alt="Profit vs Protection" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder w-full h-full text-sm\'>Profit vs Protection</div>'">
+                    </div>
+                    <div class="font-mono text-xs md:text-[10px] text-zinc-500 uppercase">Quantitative Finance</div>
+                    <h4 class="font-bold uppercase text-xs md:text-sm tracking-wide group-hover:text-cyberpink transition-colors">Profit vs. Protection</h4>
+                </div>
+                <div onclick="showWorkspace('passion-unit')" class="group border-r last:border-r-0 tech-border p-4 block bg-white hover:bg-zinc-100 cursor-pointer transition-colors">
+                    <div class="aspect-square bg-zinc-200 overflow-hidden relative mb-4 border tech-border">
+                        <img src="unit.jpg" alt="Unit Commitment" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300" loading="lazy" onerror="this.classList.add('hidden'); this.parentElement.innerHTML='<div class=\'img-placeholder w-full h-full text-sm\'>Unit Commitment</div>'">
+                    </div>
+                    <div class="font-mono text-xs md:text-[10px] text-zinc-500 uppercase">Systems Optimization</div>
+                    <h4 class="font-bold uppercase text-xs md:text-sm tracking-wide group-hover:text-cyberpink transition-colors">Unit Commitment in Energy</h4>
+                </div>
+                <div onclick="showWorkspace('passion-souvenir')" class="group p-4 block bg-white hover:bg-zinc-100 cursor-pointer transition-colors">
+                    <div class="aspect-square bg-zinc-200 overflow-hidden relative mb-4 border tech-border">
+                        <img src="souv.jpg" alt="Regression for Souvenir Shop" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300" loading="lazy" onerror="this.classList.add('hidden'); this.parentElement.innerHTML='<div class=\'img-placeholder w-full h-full text-sm\'>Souvenir Shop</div>'">
+                    </div>
+                    <div class="font-mono text-xs md:text-[10px] text-zinc-500 uppercase">Time-Series Analytics</div>
+                    <h4 class="font-bold uppercase text-xs md:text-sm tracking-wide group-hover:text-cyberpink transition-colors">Regression for a Souvenir Shop</h4>
+                </div>
+            </div>
+        </section>
+
+        <section id="creative" class="p-6 md:p-12 border-b tech-border">
+            <div class="max-w-6xl">
+                <span class="text-xs font-mono text-cyberpink uppercase tracking-widest block mb-2">[ Interactive Creative Outlet ]</span>
+                <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tight mb-4">TouchDesigner Exploration</h2>
+                <div class="font-mono text-sm text-zinc-600 max-w-2xl mb-8 space-y-4">
+                    <p>Through this software, I combine physics, mathematics, and color to create flowing art, mapping algorithmic systems to tangible visual outputs. <span class="text-cyberpink font-bold">Your mouse tracks generative flower coordinates down the interface canvas layer.</span></p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 font-mono text-xs" id="td-container">
+                    
+                    <div class="art-canvas-card border tech-border p-6 flex flex-col justify-between group cursor-none h-80 md:h-96 relative overflow-hidden">
+                        <div>
+                            <span class="text-zinc-500 group-hover:text-cyberpink font-bold transition-colors text-xs md:text-sm">01 // RAINBOW FLOW</span>
+                            <h4 class="text-sm md:text-base font-black uppercase mt-2 mb-2 tracking-tight">Mathematical Multi-Mix</h4>
+                            <p class="text-zinc-600 group-hover:text-zinc-200 transition-colors mb-4 normal-case text-xs leading-relaxed">
+                                Using math mix, attributes, and RGB color ways, constraining particles to move based on randomness and adding blur + chrome aberration.
+                            </p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="h-[2px] bg-ink w-full group-hover:bg-cyberpink transition-colors"></div>
+                            <a href="https://www.youtube.com/watch?v=kLi9G4XV2SE" target="_blank" rel="noopener noreferrer" class="block w-full text-center py-2.5 bg-ink text-cream font-bold uppercase tracking-widest border border-zinc-700 group-hover:bg-cyberpink group-hover:text-white transition-all text-xs md:text-sm">Watch Video Link ↗</a>
+                        </div>
+                    </div>
+
+                    <div class="art-canvas-card border tech-border p-6 flex flex-col justify-between group cursor-none h-80 md:h-96 relative overflow-hidden">
+                        <div>
+                            <span class="text-zinc-500 group-hover:text-cyberpink font-bold transition-colors text-xs md:text-sm">02 // VIDEO MIX</span>
+                            <h4 class="text-sm md:text-base font-black uppercase mt-2 mb-2 tracking-tight">Circuit Bending Effect</h4>
+                            <p class="text-zinc-600 group-hover:text-zinc-200 transition-colors mb-4 normal-case text-xs leading-relaxed">
+                                Utilizing the manipulation of circuit bending and voltage levels, altering visual information (brightness + color) makes an interesting photo effect.
+                            </p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="h-[2px] bg-ink w-full group-hover:bg-cyberpink transition-colors"></div>
+                            <a href="https://www.youtube.com/watch?v=wX5gsCTIRfc" target="_blank" rel="noopener noreferrer" class="block w-full text-center py-2.5 bg-ink text-cream font-bold uppercase tracking-widest border border-zinc-700 group-hover:bg-cyberpink group-hover:text-white transition-all text-xs md:text-sm">Watch Video Link ↗</a>
+                        </div>
+                    </div>
+
+                    <div class="art-canvas-card border tech-border p-6 flex flex-col justify-between group cursor-none h-80 md:h-96 relative overflow-hidden">
+                        <div>
+                            <span class="text-zinc-500 group-hover:text-cyberpink font-bold transition-colors text-xs md:text-sm">03 // HAND TRACKING</span>
+                            <h4 class="text-sm md:text-base font-black uppercase mt-2 mb-2 tracking-tight">Machine Learning Overlay</h4>
+                            <p class="text-zinc-600 group-hover:text-zinc-200 transition-colors mb-4 normal-case text-xs leading-relaxed">
+                                Utilizing machine learning and visual overlay, control the waves and radial text with your fingers, and see the scale to which they are amplified.
+                            </p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="h-[2px] bg-ink w-full group-hover:bg-cyberpink transition-colors"></div>
+                            <a href="https://www.youtube.com/watch?v=9PBZAfLtAvs" target="_blank" rel="noopener noreferrer" class="block w-full text-center py-2.5 bg-ink text-cream font-bold uppercase tracking-widest border border-zinc-700 group-hover:bg-cyberpink group-hover:text-white transition-all text-xs md:text-sm">Watch Video Link ↗</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="case-view" class="hidden flex-grow bg-cream">
+        <div class="border-b tech-border px-6 py-4 font-mono text-xs md:text-xs uppercase tracking-wider flex items-center justify-between bg-zinc-50">
+            <button onclick="showHome(event)" class="text-ink hover:text-cyberpink flex items-center gap-2 font-bold transition-colors">
+                ← Back to Overview
+            </button>
+            <span class="text-zinc-500 hidden md:inline">// Project Architecture Workspace</span>
+        </div>
+
+        <article id="case-gha" class="workspace-content hidden container mx-auto p-6 md:p-12 max-w-5xl modal-enter">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                <div class="md:col-span-5 border tech-border p-2 bg-white rounded shadow-sm">
+                    <img src="image_1e02be.jpg" alt="Global Health Action Overview" class="w-full h-auto object-cover rounded-sm" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder w-full h-64\'>Global Health Action</div>'">
+                </div>
+                <div class="md:col-span-7">
+                    <span class="text-xs font-mono text-cyberpink uppercase tracking-widest block mb-1">Global Health Action // Nonprofit Consulting</span>
+                    <h2 class="text-2xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-2">Non-Profit CRM Migration & Data Optimization</h2>
+                    <p class="text-xs font-mono uppercase text-zinc-500 mb-6">By Nitya Patil</p>
+                    
+                    <div class="prose max-w-none text-zinc-600 text-sm md:text-base space-y-6 font-sans leading-relaxed">
+                        <div class="border-l-2 border-cyberpink pl-4 italic bg-zinc-50 py-2 pr-2 text-zinc-600 text-xs md:text-sm">
+                            As the Data Migration Lead Consultant for Global Health Action, I managed a strategic initiative to consolidate fragmented donor data from DonorPerfect and Constant Contact into a unified GiveButter platform.
+                        </div>
+                        <p>Utilizing Agile management methodologies, our team executed a full lifecycle migration — from requirements gathering to verification. We utilized Python and Excel to extract, clean, and merge complex datasets, establishing primary keys to deduplicate records and mapping custom flags to new platform tags.</p>
+                        <p>This migration resolved critical capacity constraints and streamlined the client's fundraising and email marketing operations.</p>
+                    </div>
+                    
+                    <div class="mt-8 pt-6 border-t tech-border">
+                        <a href="https://docs.google.com/presentation/d/1IILXOMxyFyO4zMnO4QzqmgzymuG8bAetLMPK1tcchxs/edit" target="_blank" rel="noopener noreferrer" class="inline-block bg-ink text-cream font-mono text-xs uppercase tracking-widest px-6 py-3 hover:bg-cyberpink transition-colors">
+                            Open Case Presentation ↗
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <article id="case-compudopt" class="workspace-content hidden container mx-auto p-6 md:p-12 max-w-5xl modal-enter">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                <div class="md:col-span-5 border tech-border p-2 bg-white rounded shadow-sm">
+                    <img src="image_1e02a0.jpg" alt="Compudopt Overview" class="w-full h-auto object-cover rounded-sm" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder w-full h-64\'>Compudopt</div>'">
+                </div>
+                <div class="md:col-span-7">
+                    <span class="text-xs font-mono text-cyberpink uppercase tracking-widest block mb-1">Compudopt // Nonprofit Consulting</span>
+                    <h2 class="text-2xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-2">Recruitment, Engagement and Retention</h2>
+                    <p class="text-xs font-mono uppercase text-zinc-500 mb-6">By Nitya Patil</p>
+                    
+                    <div class="prose max-w-none text-zinc-600 text-sm md:text-base space-y-6 font-sans leading-relaxed">
+                        <div class="border-l-2 border-cyberpink pl-4 italic bg-zinc-50 py-2 pr-2 text-zinc-600 text-xs md:text-sm">
+                            As the lead consultant for this engagement, I directed a strategic initiative to build a scalable volunteer management infrastructure for Compudopt Atlanta, a nonprofit dedicated to bridging the digital divide for under-resourced youth. Utilizing an Agile management framework, I led my team through a seven-week lifecycle of research, client interviews, and iterative implementation to address critical gaps in recruitment, engagement, and retention.
+                        </div>
+                        <p>We delivered a comprehensive suite of professional tools, including standardized onboarding workflows, legal and media release templates, and a digital recruitment strategy optimized for social media and web presence.</p>
+                    </div>
+                    
+                    <div class="mt-8 pt-6 border-t tech-border">
+                        <a href="https://docs.google.com/presentation/d/1SEmh8CWaCwgTPJPgab0HBwULFSWbZFybfOSvTxAdJwY/edit" target="_blank" rel="noopener noreferrer" class="inline-block bg-ink text-cream font-mono text-xs uppercase tracking-wider px-6 py-3 hover:bg-cyberpink transition-colors">
+                            Open Case Presentation ↗
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <article id="case-mission" class="workspace-content hidden container mx-auto p-6 md:p-12 max-w-5xl modal-enter">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                <div class="md:col-span-5 border tech-border p-2 bg-white rounded shadow-sm">
+                    <img src="image_1e01ca.jpg" alt="Atlanta Mission Overview" class="w-full h-auto object-cover rounded-sm" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder w-full h-64\'>Atlanta Mission</div>'">
+                </div>
+                <div class="md:col-span-7">
+                    <span class="text-xs font-mono text-cyberpink uppercase tracking-widest block mb-1">Atlanta Mission // Nonprofit Consulting</span>
+                    <h2 class="text-2xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-2">Strategic Housing Solutions: Bridging the Path to Stability</h2>
+                    <p class="text-xs font-mono uppercase text-zinc-500 mb-6">By Nitya Patil</p>
+                    
+                    <div class="prose max-w-none text-zinc-600 text-sm md:text-base space-y-6 font-sans leading-relaxed">
+                        <div class="border-l-2 border-cyberpink pl-4 italic bg-zinc-50 py-2 pr-2 text-zinc-600 text-xs md:text-sm">
+                            As the Lead Consultant for this engagement, I directed a strategic risk-analysis initiative for Atlanta Mission to support their expansion into helping participants find affordable housing. I managed a cross-functional team to evaluate the Atlanta housing market through a data-driven framework, which included sectioning the city into zones to analyze two years of personal and property crime data and develop a weighted Safety Risk Score.
+                        </div>
+                        <p>I oversaw the development of a custom algorithmic scoring model that prioritized client needs by weighting affordability at 35%, safety at 22.5%, and accessibility to transit and groceries at 25%. This analysis identified top-tier recommendations, while providing a comprehensive directory of daycare options to support the 13.7% of women participants with children.</p>
+                    </div>
+                    
+                    <div class="mt-8 pt-6 border-t tech-border">
+                        <a href="https://docs.google.com/presentation/d/1Flm7m-XhS4Ly89831EvqS82SxazD_GGAyRUmQYGxVSY/edit" target="_blank" rel="noopener noreferrer" class="inline-block bg-ink text-cream font-mono text-xs uppercase tracking-widest px-6 py-3 hover:bg-cyberpink transition-colors">
+                            Open Case Presentation ↗
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <article id="case-photos" class="workspace-content hidden container mx-auto p-6 md:p-12 max-w-5xl modal-enter">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                <div class="md:col-span-5 border tech-border p-2 bg-white rounded shadow-sm">
+                    <img src="image_1dfa42.jpg" alt="Google Photos Case Study" class="w-full h-auto object-cover rounded-sm" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder w-full h-64\'>Google Photos</div>'">
+                </div>
+                <div class="md:col-span-7">
+                    <span class="text-xs font-mono text-cyberpink uppercase tracking-widest block mb-1">Product Design // UI/UX Research</span>
+                    <h2 class="text-2xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-2">Improving Google Photos</h2>
+                    <p class="text-xs font-mono uppercase text-zinc-500 mb-6">By Nitya Patil</p>
+                    
+                    <div class="prose max-w-none text-zinc-600 text-sm md:text-base space-y-6 font-sans leading-relaxed">
+                        <div class="border-l-2 border-cyberpink pl-4 italic bg-zinc-50 py-2 pr-2 text-zinc-600 text-xs md:text-sm">
+                            A comprehensive product case study mapping functionality workflow optimizations and algorithmic interface user experiences for modern media asset tracking.
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 pt-6 border-t tech-border">
+                        <a href="https://docs.google.com/presentation/d/1PGXw6bFMgfZL3nHzN_K1zK1ZYKulXsI11VKH-rdK3L4/edit" target="_blank" rel="noopener noreferrer" class="inline-block bg-ink text-cream font-mono text-xs uppercase tracking-widest px-6 py-3 hover:bg-cyberpink transition-colors">
+                            Open Case Presentation ↗
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <article id="vis-nyc" class="workspace-content hidden container mx-auto p-6 md:p-12 max-w-5xl modal-enter">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                <div class="md:col-span-5 border tech-border p-2 bg-white rounded shadow-sm">
+                    <img src="image_1d8649.jpg" alt="NYC Crime Framework Layout" class="w-full h-auto object-cover rounded-sm" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder w-full h-64\'>NYC Analysis</div>'">
+                </div>
+                <div class="md:col-span-7">
+                    <span class="text-xs font-mono text-cyberpink uppercase tracking-widest block mb-1">Data Visualization Study</span>
+                    <h2 class="text-2xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-2">NYC Crime Rates vs Education</h2>
+                    <p class="text-xs font-mono uppercase text-zinc-500 mb-4">By Nitya Patil</p>
+                    
+                    <div class="bg-zinc-100 border-l-4 border-ink p-4 font-mono text-xs md:text-sm mb-6 text-zinc-600">
+                        💡 This project explores the correlation between socioeconomic factors and public safety in New York City by analyzing how educational outcomes like graduation and dropout rates predict shooting incidents per capita across the 5 boroughs.
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="metric-card p-4 rounded bg-white">
+                            <div class="font-mono text-xs md:text-[10px] uppercase text-zinc-500">// Pipeline Engine</div>
+                            <div class="font-bold text-xs md:text-sm text-ink mt-1">BeautifulSoup / APIs</div>
+                        </div>
+                        <div class="metric-card p-4 rounded bg-white">
+                            <div class="font-mono text-xs md:text-[10px] uppercase text-zinc-500">// Visual Matrix</div>
+                            <div class="font-bold text-xs md:text-sm text-ink mt-1">Matplotlib / Seaborn</div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6 font-sans text-sm text-zinc-600">
+                        <div>
+                            <h4 class="font-mono text-xs uppercase tracking-wider font-bold text-cyberpink mb-2">// Why? Primary Goals</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-xs md:text-sm font-mono uppercase text-zinc-500">
+                                <li><strong>Explore Relationship:</strong> Complex linkages between safety metrics and neighborhood socioeconomic indicators.</li>
+                                <li><strong>Predictive Metrics:</strong> Determine if high school graduation/dropout trends reliably model localized per-capita shooting metrics.</li>
+                                <li><strong>Risk Patterns:</strong> Isolate temporal coordinates (high-risk monthly data and hours) to predict localized incidents.</li>
+                            </ul>
+                        </div>
+
+                        <div class="border-t tech-border pt-4">
+                            <h4 class="font-mono text-xs uppercase tracking-wider font-bold text-ink mb-2">// Engineering Mechanics</h4>
+                            <ol class="list-decimal pl-5 space-y-3 text-xs md:text-sm font-sans text-zinc-600">
+                                <li><strong>Pipeline Composition:</strong> Merged raw archival NYPD CSV histories (2006-present) with targeted web scrapes via <code>BeautifulSoup</code> targeting NYSED graduation files and NYC Open Data index APIs.</li>
+                                <li><strong>Data Engineering:</strong> Cleaned null arrays across four disparate assets, mapping binned multi-hour operational intervals and normalization bounds per 1,000 residents.</li>
+                                <li><strong>Visualization Architecture:</strong> Rendered comparative structural trends, density matrices, and layout frameworks utilizing <code>Matplotlib</code> and <code>Seaborn</code> libraries. Cleansed in: <code>nyc_analysis.ipynb</code>.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t tech-border flex flex-wrap gap-4">
+                        <a href="https://www.youtube.com/watch?v=X_j19JvANpI" target="_blank" rel="noopener noreferrer" class="bg-ink text-cream font-mono text-xs uppercase tracking-widest px-4 py-2.5 hover:bg-cyberpink transition-colors">Watch Analysis Video ↗</a>
+                        <a href="https://docs.google.com/presentation/d/1ldRgfieABjB7RNZpNq9i-GUUBVHszdQLXQ-7AtoBX_w/edit" target="_blank" rel="noopener noreferrer" class="border border-ink font-mono text-xs uppercase tracking-widest px-4 py-2.5 hover:bg-zinc-100 transition-colors">Open Presentation ↗</a>
+                        <a href="https://github.com/nityapatil77/viz-projects/tree/main/nyc_edu_violence" target="_blank" rel="noopener noreferrer" class="bg-cyberpink text-white font-mono text-xs uppercase tracking-widest px-4 py-2.5 hover:bg-ink transition-colors">View GitHub Repository ↗</a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <article id="vis-airline" class="workspace-content hidden container mx-auto p-6 md:p-12 max-w-5xl modal-enter">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                <div class="md:col-span-5 border tech-border p-2 bg-white rounded shadow-sm">
+                    <img src="image_1d8621.jpg" alt="Global Airline Infrastructure System" class="w-full h-auto object-cover rounded-sm" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder w-full h-64\'>Airline System</div>'">
+                </div>
+                <div class="md:col-span-7">
+                    <span class="text-xs font-mono text-cyberpink uppercase tracking-widest block mb-1">Data Visualization Study</span>
+                    <h2 class="text-2xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-2">Global Airline Coordination System</h2>
+                    <p class="text-xs font-mono uppercase text-zinc-500 mb-4">A Study by Nitya Patil</p>
+                    
+                    <div class="bg-zinc-100 border-l-4 border-ink p-4 font-mono text-xs md:text-sm mb-6 text-zinc-600">
+                        💡 This project involved architecting a high-stakes relational database to manage the real-time coordination of a global airline network, prioritizing data integrity for safety and efficiency.
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="metric-card p-4 rounded bg-white">
+                            <div class="font-mono text-xs md:text-[10px] uppercase text-zinc-500">// Hub Operations</div>
+                            <div class="font-bold text-xs md:text-sm text-ink mt-1">25 Corporate Hubs</div>
+                        </div>
+                        <div class="metric-card p-4 rounded bg-white">
+                            <div class="font-mono text-xs md:text-[10px] uppercase text-zinc-500">// Base Engine</div>
+                            <div class="font-bold text-xs md:text-sm text-ink mt-1">MySQL InnoDB</div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6 font-sans text-sm text-zinc-600">
+                        <div>
+                            <h4 class="font-mono text-xs uppercase tracking-wider font-bold text-cyberpink mb-2">// Project Rationale</h4>
+                            <p class="text-xs md:text-sm font-mono uppercase mb-2 text-zinc-500">Modeling Complex Operations:</p>
+                            <p class="text-sm text-zinc-600">Tracks dynamic location arrays shifting from localized gates to moving airborne vessels while verifying pilot assets, vessel capacity balances, and transactional safety limits via automation triggers.</p>
+                        </div>
+
+                        <div>
+                            <h4 class="font-mono text-xs uppercase tracking-wider font-bold text-ink mb-2">// Entity-Relationship Diagram</h4>
+                            <p class="text-xs text-zinc-500 mb-1">First, it was necessary to create an entity-relationship diagram to plan out how we were going to create this database.</p>
+                            <button onclick="openDiagramModal()" class="text-cyberpink hover:underline text-xs font-mono font-bold uppercase tracking-wider">
+                                (click to expand map)
+                            </button>
+                        </div>
+
+                        <div class="border-t tech-border pt-4">
+                            <h4 class="font-mono text-xs uppercase tracking-wider font-bold text-ink mb-2">// System Architecture Log</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-xs md:text-sm text-zinc-600">
+                                <li><strong>Relational Design:</strong> Unified framework utilizing InnoDB engines to control foreign key constraints over an active footprint of 25 corporate hubs and 11 transport networks.</li>
+                                <li><strong>Advanced SQL Automation:</strong> Configured integrated procedural arrays handling real-time flight execution triggers, time-matrix equations, and structural simulations mapping consecutive priority operational checks.</li>
+                                <li><strong>Safety Logic:</strong> Embedded error rollback constraints to halt transactions instantly if crew criteria or capacity metrics crash threshold dependencies.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t tech-border font-mono text-xs flex flex-wrap gap-4">
+                        <button onclick="openCodeModal()" class="bg-ink text-cream font-mono text-xs uppercase tracking-widest px-6 py-3 hover:bg-cyberpink transition-colors">
+                            [ Implemented Code Components ]
+                        </button>
+                        <a href="https://github.com/nityapatil77/viz-projects/tree/main/airline_management" target="_blank" rel="noopener noreferrer" class="bg-cyberpink text-white font-mono text-xs uppercase tracking-widest px-6 py-3 hover:bg-ink transition-colors flex items-center">
+                            View GitHub Repository ↗
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <article id="passion-ncaa" class="workspace-content hidden container mx-auto p-6 md:p-12 max-w-5xl modal-enter">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                <div class="md:col-span-5 border tech-border p-2 bg-white rounded shadow-sm">
+                    <img src="shoes.jpg" alt="NCAA Graduation Rate Analysis Overview" class="w-full h-auto object-cover rounded-sm" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder w-full h-64\'>NCAA Analysis</div>'">
+                </div>
+                <div class="md:col-span-7">
+                    <span class="text-xs font-mono text-cyberpink uppercase tracking-widest block mb-1">Research Log // Statistical Analysis</span>
+                    <h2 class="text-2xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-2">NCAA Graduation Rate Analysis</h2>
+                    <p class="text-xs font-mono uppercase text-zinc-500 mb-4">By Nitya Patil</p>
+                    
+                    <aside class="bg-zinc-100 border-l-4 border-ink p-4 font-mono text-xs md:text-sm mb-6 text-zinc-600">
+                        💡 This analysis investigates whether successful collegiate sports programs correlate with higher student graduation rates using Multiple Linear Regression (MLR) on data from Major NCAA Division I universities.
+                    </aside>
+
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="metric-card p-4 rounded bg-white">
+                            <div class="font-mono text-xs md:text-[10px] uppercase text-zinc-500">// Target Adjusted Variant</div>
+                            <div class="font-bold text-xs md:text-sm text-ink mt-1">Adjusted R²: 77.41%</div>
+                        </div>
+                        <div class="metric-card p-4 rounded bg-white">
+                            <div class="font-mono text-xs md:text-[10px] uppercase text-zinc-500">// Applied Parameters</div>
+                            <div class="font-bold text-xs md:text-sm text-ink mt-1">11 Core Variables</div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6 font-sans text-sm text-zinc-600">
+                        <div>
+                            <h4 class="font-mono text-xs uppercase tracking-wider font-bold text-cyberpink mb-2">// Core Findings</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-xs md:text-sm font-mono uppercase text-zinc-500">
+                                <li><strong>Positive Impact:</strong> Successful sports programs positively impact graduation rates.</li>
+                                <li><strong>Key Predictors:</strong> Composite basketball ranking (<code>bbindex</code>) and average home attendance (<code>attend</code>) were significant indicators.</li>
+                                <li><strong>Academic Success:</strong> Robust intercollegiate athletics contribute to higher overall graduation rates among the student body.</li>
+                            </ul>
+                        </div>
+
+                        <div class="border-t tech-border pt-4">
+                            <h4 class="font-mono text-xs uppercase tracking-wider font-bold text-ink mb-2">// Methodology & Performance</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-xs md:text-sm font-sans text-zinc-600">
+                                <li><strong>Data Transformation:</strong> To address non-normality, a Box-Cox transformation was applied (λ=1.4) to stabilize response parameters.</li>
+                                <li><strong>Variable Selection:</strong> Evaluated Stepwise Forward Selection and All-Subsets Regression arrays.</li>
+                                <li><strong>Optimal Model:</strong> All-Subsets Adjusted R² model featured 11 variables and achieved an Adjusted R² of 77.41%.</li>
+                                <li><strong>Reliability:</strong> Variance Inflation Factor (VIF) screening was utilized to eliminate multicollinearity.</li>
+                            </ul>
+                        </div>
+
+                        <div class="border-t tech-border pt-4">
+                            <h4 class="font-mono text-xs uppercase tracking-wider font-bold text-ink mb-2">// Portfolio Highlights</h4>
+                            <p class="text-xs md:text-sm text-zinc-600"><strong>Technical Proficiency:</strong> Demonstrates advanced MLR diagnostics, box-cox applications, Q-Q plotting, and residual checks.</p>
+                            <p class="text-xs md:text-sm mt-2 text-zinc-600"><strong>Analytical Rigor:</strong> Manages complex real-world variables, weighting adjusted variants against strict C_p-Statistics.</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t tech-border">
+                        <button onclick="openPdfModal('Nitya_Patil_NCAA_Analysis.pdf', 'NCAA Graduation Rate Analysis // Research Evaluation Log')" class="inline-block bg-ink text-cream font-mono text-xs uppercase tracking-widest px-6 py-3 hover:bg-cyberpink transition-colors">
+                            View Research Paper ↗
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <article id="passion-profit" class="workspace-content hidden container mx-auto p-6 md:p-12 max-w-5xl modal-enter">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                <div class="md:col-span-5 border tech-border p-2 bg-white rounded shadow-sm">
+                    <img src="profit.jpg" alt="Profit vs Protection Analysis Overview" class="w-full h-auto object-cover rounded-sm" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder w-full h-64\'>Profit vs Protection</div>'">
+                </div>
+                <div class="md:col-span-7">
+                    <span class="text-xs font-mono text-cyberpink uppercase tracking-widest block mb-1">Research Log // Quantitative Portfolio Allocation</span>
+                    <h2 class="text-2xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-2">Profit vs. Protection</h2>
+                    <p class="text-xs font-mono uppercase text-zinc-500 mb-4">By Nitya Patil</p>
+                    
+                    <aside class="bg-zinc-100 border-l-4 border-ink p-4 font-mono text-xs md:text-sm mb-6 text-zinc-600">
+                        💡 This research paper evaluates the risk-adjusted financial performance of renewable energy versus traditional fossil fuel sectors during the macroeconomic volatility of 2020–2025.
+                    </aside>
+
+                    <div class="space-y-6 font-sans text-sm text-zinc-600">
+                        <div>
+                            <h4 class="font-mono text-xs uppercase tracking-wider font-bold text-cyberpink mb-2">// Core Findings</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-xs md:text-sm font-mono uppercase text-zinc-500">
+                                <li><strong>Performance Winner:</strong> Traditional energy had larger raw growth, capitalizing on macro supply constraint shocks.</li>
+                                <li><strong>Green Energy Challenges:</strong> Renewable energy struggled, burdened by negative risk-adjusted returns and high volatility.</li>
+                                <li><strong>Strategic Value:</strong> Clean energy's core value lies in portfolio protection rather than profit, acting as a critical asset hedge.</li>
+                            </ul>
+                        </div>
+
+                        <div class="border-t tech-border pt-4">
+                            <h4 class="font-mono text-xs uppercase tracking-wider font-bold text-ink mb-2">// Analysis & Methodology</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-xs md:text-sm font-sans text-zinc-600">
+                                <li><strong>Sharpe Ratio Analysis:</strong> Fossil Fuels achieved Sharpe Ratios beating the market baseline. Conversely, Green Sector ETFs showed negative metrics.</li>
+                                <li><strong>Portfolio Optimization:</strong> Generated an Efficient Frontier requiring ~40% allocation to Green Energy to dilute traditional risk arrays.</li>
+                                <li><strong>Correlation Matrix:</strong> Proven mathematical justification for keeping low-performing clean assets due to baseline cross-covariance reduction.</li>
+                            </ul>
+                        </div>
+
+                        <div class="border-t tech-border pt-4">
+                            <h4 class="font-mono text-xs uppercase tracking-wider font-bold text-ink mb-2">// Portfolio Highlights</h4>
+                            <p class="text-xs md:text-sm text-zinc-600"><strong>Financial Modeling:</strong> Calculates Annualized Volatility, Sharpe metrics, and operational covariance maps using Excel Solver engines.</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t tech-border">
+                        <button onclick="openPdfModal('Profit vs Protection.pdf', 'Profit vs Protection // Macroeconomic Risk-Adjusted Allocation')" class="inline-block bg-ink text-cream font-mono text-xs uppercase tracking-widest px-6 py-3 hover:bg-cyberpink transition-colors">
+                            View Research Paper ↗
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <article id="passion-unit" class="workspace-content hidden container mx-auto p-6 md:p-12 max-w-5xl modal-enter">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                <div class="md:col-span-5 border tech-border p-2 bg-white rounded shadow-sm">
+                    <img src="unit.jpg" alt="Unit Commitment Systems Map" class="w-full h-auto object-cover rounded-sm" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder w-full h-64\'>Unit Commitment</div>'">
+                </div>
+                <div class="md:col-span-7">
+                    <span class="text-xs font-mono text-cyberpink uppercase tracking-widest block mb-1">Research Log // Infrastructure Optimization</span>
+                    <h2 class="text-2xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-2">Unit Commitment in Energy Systems</h2>
+                    <p class="text-xs font-mono uppercase text-zinc-500 mb-4">By Nitya Patil</p>
+                    
+                    <aside class="bg-zinc-100 border-l-4 border-ink p-4 font-mono text-xs md:text-sm mb-6 text-zinc-600">
+                        💡 Unit Commitment is a complex optimization challenge in power systems that decides which generators to turn on/off (commit) over time to meet forecasted demand. This research explores Lagrange Relaxation as a scalable solution.
+                    </aside>
+
+                    <div class="space-y-6 font-sans text-sm text-zinc-600">
+                        <div>
+                            <h4 class="font-mono text-xs uppercase tracking-wider font-bold text-cyberpink mb-2">// Core Findings</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-xs md:text-sm font-mono uppercase text-zinc-500">
+                                <li><strong>Decomposition:</strong> Lagrange Relaxation works best for large-scale grids, breaking systems down to unit-level subproblems.</li>
+                                <li><strong>Price Signals:</strong> Lagrange multipliers coordinate Hydro-Thermal execution intervals.</li>
+                                <li><strong>Stability:</strong> Hydro offsets peak-hour high fuel overheads matching specific physical states: P_min, P_max, or marginal efficiency limits.</li>
+                            </ul>
+                        </div>
+
+                        <div class="border-t tech-border pt-4">
+                            <h4 class="font-mono text-xs uppercase tracking-wider font-bold text-ink mb-2">// Algorithmic Architecture</h4>
+                            <p class="text-xs font-mono text-zinc-500 mb-2">Subgradient Update Rule Loop:</p>
+                            <pre class="bg-zinc-900 text-green-400 p-4 font-mono text-xs overflow-x-auto mb-4">[λ_{t,k+1} = λ_{t,k} + α_k * g_{t,k}]</pre>
+                            <p class="text-xs md:text-sm text-zinc-600">Integrates Dynamic Programming path tracking with Mixed-Integer Linear Programming (MILP) to bypass standard dimensional limitations across grid footprints.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 pt-6 border-t tech-border">
+                        <button onclick="openPdfModal('Unit Commitment Problems In Energy Systems.pdf', 'Unit Commitment in Energy Systems // Grid Topology Systems Lab')" class="inline-block bg-ink text-cream font-mono text-xs uppercase tracking-widest px-6 py-3 hover:bg-cyberpink transition-colors">
+                            View Research Paper ↗
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <article id="passion-souvenir" class="workspace-content hidden container mx-auto p-6 md:p-12 max-w-5xl modal-enter">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                <div class="md:col-span-5 border tech-border p-2 bg-white rounded shadow-sm">
+                    <img src="souv.jpg" alt="Souvenir Shop Analysis Forecast Overview" class="w-full h-auto object-cover rounded-sm" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder w-full h-64\'>Souvenir Shop</div>'">
+                </div>
+                <div class="md:col-span-7">
+                    <span class="text-xs font-mono text-cyberpink uppercase tracking-widest block mb-1">Research Log // Time-Series Analytics</span>
+                    <h2 class="text-2xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-2">Regression Methods for a Souvenir Shop</h2>
+                    <p class="text-xs font-mono uppercase text-zinc-500 mb-4">By Nitya Patil</p>
+                    
+                    <aside class="bg-zinc-100 border-l-4 border-ink p-4 font-mono text-xs md:text-sm mb-6 text-zinc-600">
+                        💡 This research explores a list of monthly sales for a shop in a Queensland beach resort town from 1987 to 1993 to evaluate various time-series regression methods.
+                    </aside>
+
+                    <div class="space-y-6 font-sans text-sm text-zinc-600">
+                        <div>
+                            <h4 class="font-mono text-xs uppercase tracking-wider font-bold text-cyberpink mb-2">// Core Findings</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-xs md:text-sm font-mono uppercase text-zinc-500">
+                                <li><strong>Optimal Performance:</strong> Triple Exponentially Weighted Moving Average completely outpaced alternatives.</li>
+                                <li><strong>Seasonality Drivers:</strong> Isolated predictable annual peak patterns tracking December structural variations.</li>
+                                <li><strong>Bias Buffer:</strong> Identified subtle Mean Forecast Error margins, generating strategic inventory safeguards.</li>
+                            </ul>
+                        </div>
+
+                        <div class="border-t tech-border pt-4">
+                            <h4 class="font-mono text-xs uppercase tracking-wider font-bold text-ink mb-2">// Engineering Mechanics</h4>
+                            <p class="text-xs md:text-sm text-zinc-600">Executed Holt-Winters smoothing matrices in R, analyzing and tracking three distinct parameter sets: Level (α), Trend (β), and Seasonality (γ).</p>
+                            <p class="text-xs text-zinc-500 mt-2">Validated against four fundamental metrics:</p>
+                            <ul class="list-disc pl-5 text-xs font-mono uppercase mt-1 text-zinc-500">
+                                <li>MFE (Mean Forecast Error)</li>
+                                <li>MAD (Mean Absolute Deviation)</li>
+                                <li>MAPE (Mean Absolute Percentage Error)</li>
+                                <li>MSE (Mean Squared Error)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t tech-border">
+                        <button onclick="openPdfModal('RM of Souvenir Shop.pdf', 'Regression Methods for a Souvenir Shop // Forecasting Evaluation Archive')" class="inline-block bg-ink text-cream font-mono text-xs uppercase tracking-widest px-6 py-3 hover:bg-cyberpink transition-colors">
+                            View Research Paper ↗
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <div id="resume-modal" class="hidden fixed inset-0 bg-ink/95 backdrop-blur-md z-50 flex flex-col justify-between transition-all duration-300 select-none modal-enter">
+        <div class="p-6 font-mono text-xs uppercase tracking-widest flex justify-between items-center text-cream border-b border-zinc-800">
+            <div class="flex items-center gap-2">
+                <span class="text-cyberpink font-bold">// DOSSIER ACCESS:</span>
+                <span class="hidden md:inline">nitya_patil_resume.jpg</span>
+            </div>
+            <button onclick="closeResumeModal()" class="font-black text-sm hover:text-cyberpink tracking-tighter text-cream" aria-label="Close resume">[ CLOSE ×]</button>
+        </div>
+        <div class="flex-grow flex items-center justify-center p-4 overflow-hidden">
+            <img src="nitya_patil_resume.jpg" alt="Nitya Patil Resume" class="max-w-full max-h-[80vh] object-contain border border-zinc-800 shadow-2xl bg-white p-2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder w-full h-full\'>Resume unavailable</div>'">
+        </div>
+        <div class="p-4 bg-zinc-950 border-t border-zinc-900 text-center font-mono text-xs md:text-[10px] text-zinc-500 tracking-wider">
+            Curriculum Vitae Schema // Verification Engine Operational Layer
+        </div>
+    </div>
+
+    <div id="diagram-modal" class="hidden fixed inset-0 bg-ink/95 backdrop-blur-md z-50 flex flex-col justify-between transition-all duration-300 select-none modal-enter">
+        <div class="p-6 font-mono text-xs uppercase tracking-widest flex justify-between items-center text-cream border-b border-zinc-800">
+            <div class="flex items-center gap-2">
+                <span class="text-cyberpink font-bold">// SYSTEM MAP:</span>
+                <span class="hidden md:inline">er.jpg</span>
+            </div>
+            <button onclick="closeDiagramModal()" class="font-black text-sm hover:text-cyberpink tracking-tighter text-cream" aria-label="Close diagram">[ CLOSE × ]</button>
+        </div>
+        <div class="flex-grow flex items-center justify-center p-4 overflow-hidden">
+            <img src="er.jpg" alt="Entity Relationship Diagram" class="max-w-full max-h-[80vh] object-contain border border-zinc-800 shadow-2xl bg-white p-2" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder w-full h-full\'>Diagram unavailable</div>'">
+        </div>
+        <div class="p-4 bg-zinc-950 border-t border-zinc-900 text-center font-mono text-xs md:text-[10px] text-zinc-500 tracking-wider">
+            Data Schema Architecture Logical Mapping // Project Modeling Workspace Layer
+        </div>
+    </div>
+
+    <div id="code-modal" class="hidden fixed inset-0 bg-ink/80 backdrop-blur-sm z-50 flex justify-end items-center transition-all duration-300 modal-enter">
+        <div class="bg-cream w-full md:w-3/4 h-full shadow-2xl flex flex-col justify-between border-l border-ink">
+            <div class="border-b tech-border p-6 font-mono text-xs uppercase tracking-widest flex justify-between items-center bg-zinc-50">
+                <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-cyberpink"></span>
+                    <span class="font-bold text-ink hidden md:inline">airline_coordination_architecture.sql</span>
+                </div>
+                <button onclick="closeCodeModal()" class="font-black text-sm hover:text-cyberpink tracking-tighter" aria-label="Close code panel">[ CLOSE × ]</button>
+            </div>
+
+            <div class="flex-grow overflow-y-scroll p-6 font-mono text-xs text-zinc-800 bg-[#f4f1ea] space-y-8 no-scrollbar">
+                
+                <div>
+                    <span class="text-cyberpink font-bold block mb-1">-- 01. ADD_AIRPLANE PROCEDURE</span>
+                    <pre class="bg-white p-4 border border-zinc-200 overflow-x-auto">DROP PROCEDURE IF EXISTS add_airplane;
+DELIMITER //
+
+CREATE PROCEDURE add_airplane (
+    IN ip_airlineID VARCHAR(50), 
+    IN ip_tail_num VARCHAR(50),
+    IN ip_seat_capacity INTEGER, 
+    IN ip_speed INTEGER, 
+    IN ip_locationID VARCHAR(50),
+    IN ip_plane_type VARCHAR(100), 
+    IN ip_maintenanced BOOLEAN, 
+    IN ip_model VARCHAR(50),
+    IN ip_neo BOOLEAN
+)
+sp_main: BEGIN
+    IF (SELECT COUNT(*) FROM airline WHERE airlineID = ip_airlineID) &lt; 1 THEN 
+        LEAVE sp_main;
+    END IF;
+
+    IF (SELECT COUNT(*) FROM airplane WHERE airlineID = ip_airlineID AND tail_num = ip_tail_num) &gt; 0 THEN 
+        LEAVE sp_main;
+    END IF;
+
+    IF ip_seat_capacity &lt;= 0 OR ip_speed &lt;= 0 THEN 
+        LEAVE sp_main;
+    END IF;
+
+    IF ip_plane_type = 'Airbus' THEN 
+        IF ip_neo IS NULL THEN
+            LEAVE sp_main;
+        END IF;
+    ELSEIF ip_plane_type = 'Boeing' THEN 
+        IF ip_maintenanced IS NULL OR ip_model IS NULL THEN 
+            LEAVE sp_main;
+        END IF; 
+    END IF;
+
+    IF (SELECT COUNT(*) FROM location WHERE locationID = ip_locationID) &gt; 0 THEN 
+        LEAVE sp_main;
+    END IF;
+
+    INSERT INTO location (locationID) VALUES (ip_locationID);
+
+    INSERT INTO airplane (
+        airlineID, tail_num, seat_capacity, speed, locationID,
+        plane_type, maintenanced, model, neo
+    ) VALUES (
+        ip_airlineID, ip_tail_num, ip_seat_capacity, ip_speed, ip_locationID,
+        ip_plane_type, ip_maintenanced, ip_model, ip_neo
+    );
+END // 
+DELIMITER ;</pre>
+                </div>
+
+                <div>
+                    <span class="text-cyberpink font-bold block mb-1">-- 02. ADD_AIRPORT PROCEDURE</span>
+                    <pre class="bg-white p-4 border border-zinc-200 overflow-x-auto">DROP PROCEDURE IF EXISTS add_airport;
+DELIMITER //
+CREATE PROCEDURE add_airport (IN ip_airportID CHAR(3), IN ip_airport_name VARCHAR(200),
+    IN ip_city VARCHAR(100), IN ip_state VARCHAR(100), IN ip_country CHAR(3), IN ip_locationID VARCHAR(50))
+sp_main: BEGIN
+    IF (SELECT COUNT(*) FROM airport WHERE airportID = ip_airportID) &gt; 0 THEN 
+        LEAVE sp_main; 
+    END IF; 
+    
+    IF (SELECT COUNT(*) FROM location WHERE locationID = ip_locationID) &gt; 0 THEN
+        LEAVE sp_main;
+    END IF;
+
+    IF ip_city IS NULL OR ip_state IS NULL OR ip_country IS NULL THEN
+        LEAVE sp_main;
+    END IF;
+    
+    INSERT INTO location VALUES (ip_locationID);
+    INSERT INTO airport VALUES (ip_airportID, ip_airport_name, ip_city, ip_state, ip_country, ip_locationID);
+END //
+DELIMITER ;</pre>
+                </div>
+
+                <div>
+                    <span class="text-cyberpink font-bold block mb-1">-- 03. ADD_PERSON PROCEDURE</span>
+                    <pre class="bg-white p-4 border border-zinc-200 overflow-x-auto">DROP PROCEDURE IF EXISTS add_person;
+DELIMITER //
+CREATE PROCEDURE add_person (IN ip_personID VARCHAR(50), IN ip_first_name VARCHAR(100),
+    IN ip_last_name VARCHAR(100), IN ip_locationID VARCHAR(50), IN ip_taxID VARCHAR(50),
+    IN ip_experience INTEGER, IN ip_miles INTEGER, IN ip_funds INTEGER)
+sp_main: BEGIN
+    IF NOT EXISTS (SELECT * FROM location WHERE locationID=ip_locationID) THEN
+        LEAVE sp_main;
+    END IF;
+    IF EXISTS (SELECT * FROM person WHERE personID=ip_personID) THEN
+        LEAVE sp_main;
+    END IF;
+
+    IF (ip_taxID IS NOT NULL AND ip_experience IS NOT NULL AND ip_miles IS NULL AND ip_funds IS NULL) THEN
+        INSERT INTO person (personID, first_name, last_name, locationID)
+        VALUES (ip_personID, ip_first_name, ip_last_name, ip_locationID);
+        INSERT INTO pilot (personID, taxID, experience)
+        VALUES (ip_personID, ip_taxID, ip_experience);
+    ELSEIF (ip_miles IS NOT NULL AND ip_funds IS NOT NULL AND ip_taxID IS NULL AND ip_experience IS NULL) THEN
+        INSERT INTO person (personID, first_name, last_name, locationID)
+        VALUES (ip_personID, ip_first_name, ip_last_name, ip_locationID);
+        INSERT INTO passenger (personID, miles, funds)
+        VALUES (ip_personID, ip_miles, ip_funds);
+    ELSE
+        LEAVE sp_main;
+    END IF;
+END //
+DELIMITER ;</pre>
+                </div>
+
+                <div>
+                    <span class="text-cyberpink font-bold block mb-1">-- 04. GRANT_OR_REVOKE_PILOT_LICENSE PROCEDURE</span>
+                    <pre class="bg-white p-4 border border-zinc-200 overflow-x-auto">DROP PROCEDURE IF EXISTS grant_or_revoke_pilot_license;
+DELIMITER //
+CREATE PROCEDURE grant_or_revoke_pilot_license (
+    IN in_person_id VARCHAR(50),
+    IN in_license_type VARCHAR(100)
+)
+sp_main: BEGIN
+    DECLARE v_pilot_exists INT DEFAULT 0;
+    DECLARE v_license_exists INT DEFAULT 0;
+
+    SELECT COUNT(*) INTO v_pilot_exists FROM pilot WHERE personID = in_person_id;
+
+    IF v_pilot_exists &gt; 0 THEN
+        SELECT COUNT(*) INTO v_license_exists FROM pilot_licenses
+        WHERE personID = in_person_id AND license = in_license_type;
+
+        IF v_license_exists &gt; 0 THEN
+            DELETE FROM pilot_licenses WHERE personID = in_person_id AND license = in_license_type;
+        ELSE
+            INSERT INTO pilot_licenses (personID, license) VALUES (in_person_id, in_license_type);
+        END IF;
+    END IF;
+END //
+DELIMITER ;</pre>
+                </div>
+
+                <div>
+                    <span class="text-cyberpink font-bold block mb-1">-- 05. OFFER_FLIGHT PROCEDURE</span>
+                    <pre class="bg-white p-4 border border-zinc-200 overflow-x-auto">DROP PROCEDURE IF EXISTS offer_flight;
+DELIMITER //
+CREATE PROCEDURE offer_flight (IN ip_flightID VARCHAR(50), IN ip_routeID VARCHAR(50),
+    IN ip_support_airline VARCHAR(50), IN ip_support_tail VARCHAR(50), IN ip_progress INTEGER,
+    IN ip_next_time TIME, IN ip_cost INTEGER)
+sp_main: BEGIN
+    DECLARE progress_int INT;
+    SELECT COUNT(*) INTO progress_int FROM route_path WHERE routeID = ip_routeID;
+    
+    IF ip_progress &gt;= progress_int THEN
+        LEAVE sp_main;
+    END IF;
+    IF (SELECT COUNT(*) FROM flight WHERE flightID = ip_flightID) &gt; 0 THEN
+        LEAVE sp_main;
+    END IF;
+    IF ip_next_time IS NULL OR ip_cost IS NULL THEN
+        LEAVE sp_main;
+    END IF;
+
+    IF ip_support_airline IS NOT NULL OR ip_support_tail IS NOT NULL THEN
+        IF ip_progress IS NULL OR ip_next_time IS NULL THEN 
+            LEAVE sp_main;
+        END IF;
+        IF (SELECT COUNT(*) FROM flight WHERE support_airline = ip_support_airline AND support_tail = ip_support_tail) &gt; 0 THEN
+            LEAVE sp_main;
+        END IF;
+    END IF;
+
+    INSERT INTO flight VALUES (
+        ip_flightID, ip_routeID, ip_support_airline, ip_support_tail,
+        ip_progress, 'on_ground', ip_next_time, ip_cost
+    );
+END //
+DELIMITER ;</pre>
+                </div>
+
+                <div>
+                    <span class="text-cyberpink font-bold block mb-1">-- 06. FLIGHT_LANDING PROCEDURE</span>
+                    <pre class="bg-white p-4 border border-zinc-200 overflow-x-auto">DROP PROCEDURE IF EXISTS flight_landing;
+DELIMITER //
+CREATE PROCEDURE flight_landing (IN ip_flightID VARCHAR(50))
+sp_main: BEGIN
+    DECLARE v_current_leg INTEGER DEFAULT 0;
+    DECLARE v_current_status VARCHAR(100) DEFAULT NULL;
+    DECLARE v_curr_next_time TIME DEFAULT NULL;
+    DECLARE v_new_airplane_status VARCHAR(100) DEFAULT NULL;
+    DECLARE v_new_next_time TIME DEFAULT NULL;
+    DECLARE v_supp_airline VARCHAR(50) DEFAULT NULL;
+    DECLARE v_supp_tail VARCHAR(50) DEFAULT NULL;
+    DECLARE v_num_miles INTEGER DEFAULT 0;
+    DECLARE v_plane_num VARCHAR(50) DEFAULT NULL;
+                
+    IF (SELECT COUNT(*) FROM flight f WHERE f.flightID = ip_flightID) &lt; 1 THEN 
+        LEAVE sp_main; 
+    END IF;
+    
+    SELECT progress, next_time, airplane_status 
+    INTO v_current_leg, v_curr_next_time, v_current_status 
+    FROM flight WHERE flightID = ip_flightID;
+
+    IF (v_current_leg IS NULL OR v_current_leg &lt; 1) THEN 
+        LEAVE sp_main; 
+    END IF;
+    IF (v_current_status IS NULL OR v_current_status = 'on_ground') THEN 
+        LEAVE sp_main; 
+    END IF;
+    
+    SET v_new_airplane_status = 'on_ground';
+    SET v_new_next_time = ADDTIME(v_curr_next_time, MAKETIME(1, 0, 0));
+    
+    UPDATE flight f 
+    SET f.airplane_status = v_new_airplane_status, f.next_time = v_new_next_time
+    WHERE f.flightID = ip_flightID;
+            
+    SELECT support_airline, support_tail INTO v_supp_airline, v_supp_tail FROM flight WHERE flightID = ip_flightID;
+    
+    UPDATE pilot p SET p.experience = p.experience + 1
+    WHERE p.commanding_flight = ip_flightID;
+            
+    SELECT l.distance INTO v_num_miles FROM leg l 
+    JOIN route_path rp ON l.legID = rp.legID 
+    JOIN flight f ON rp.routeID = f.routeID AND rp.sequence = f.progress 
+    WHERE f.flightID = ip_flightID;
+
+    SELECT locationID INTO v_plane_num FROM airplane a WHERE a.airlineID = v_supp_airline AND a.tail_num = v_supp_tail;
+    
+    UPDATE passenger p SET p.miles = p.miles + v_num_miles WHERE p.personID IN 
+    (SELECT pe.personID FROM person pe WHERE pe.locationID = v_plane_num);
+END //
+DELIMITER ;</pre>
+                </div>
+
+                <div>
+                    <span class="text-cyberpink font-bold block mb-1">-- 07. FLIGHT_TAKEOFF PROCEDURE</span>
+                    <pre class="bg-white p-4 border border-zinc-200 overflow-x-auto">DROP PROCEDURE IF EXISTS flight_takeoff;
+DELIMITER //
+CREATE PROCEDURE flight_takeoff (IN ip_flightID VARCHAR(50))
+sp_main: BEGIN
+    DECLARE v_current_status VARCHAR(20);
+    DECLARE v_progress INT;
+    DECLARE v_routeID VARCHAR(50);
+    DECLARE v_support_airline VARCHAR(50);
+    DECLARE v_support_tail VARCHAR(50);
+    DECLARE v_leg_count INT;
+    DECLARE v_plane_type VARCHAR(100);
+    DECLARE v_speed INT;
+    DECLARE v_pilot_count INT;
+    DECLARE v_next_legID VARCHAR(50);
+    DECLARE v_next_leg_distance INT;
+    DECLARE v_flight_time INT;
+
+    SELECT airplane_status, progress, routeID, support_airline, support_tail 
+    INTO v_current_status, v_progress, v_routeID, v_support_airline, v_support_tail
+    FROM flight WHERE flightID = ip_flightID;
+
+    IF v_current_status IS NULL OR v_current_status != 'on_ground' THEN
+        LEAVE sp_main;
+    END IF;
+
+    SELECT MAX(sequence) INTO v_leg_count FROM route_path WHERE routeID = v_routeID;
+
+    IF v_progress &gt;= v_leg_count THEN
+        LEAVE sp_main;
+    END IF;
+
+    SELECT plane_type, speed INTO v_plane_type, v_speed
+    FROM airplane WHERE airlineID = v_support_airline AND tail_num = v_support_tail;
+
+    SELECT COUNT(*) INTO v_pilot_count FROM pilot WHERE commanding_flight = ip_flightID;
+
+    IF (v_plane_type = 'Boeing' AND v_pilot_count &lt; 2) OR 
+       ((v_plane_type != 'Boeing' OR v_plane_type IS NULL) AND v_pilot_count &lt; 1) THEN
+        UPDATE flight SET next_time = ADDTIME(next_time, '00:30:00') WHERE flightID = ip_flightID;
+        LEAVE sp_main;
+    END IF;
+
+    SELECT legID INTO v_next_legID FROM route_path WHERE routeID = v_routeID AND sequence = v_progress + 1;
+    SELECT distance INTO v_next_leg_distance FROM leg WHERE legID = v_next_legID;
+
+    SET v_flight_time = (v_next_leg_distance / v_speed) * 3600;
+
+    UPDATE flight 
+    SET airplane_status = 'in_flight', progress = progress + 1, next_time = ADDTIME(next_time, SEC_TO_TIME(v_flight_time))
+    WHERE flightID = ip_flightID;
+END //
+DELIMITER ;</pre>
+                </div>
+
+                <div>
+                    <span class="text-cyberpink font-bold block mb-1">-- 08. PASSENGERS_BOARD PROCEDURE</span>
+                    <pre class="bg-white p-4 border border-zinc-200 overflow-x-auto">DROP PROCEDURE IF EXISTS passengers_board;
+DELIMITER //
+CREATE PROCEDURE passengers_board (IN ip_flightID VARCHAR(50))
+sp_main: BEGIN
+    DECLARE v_current_leg INT DEFAULT 0;
+    DECLARE v_total_legs INT DEFAULT 0;
+    DECLARE v_airplane_status VARCHAR(100);
+    DECLARE v_route_id VARCHAR(50);
+    DECLARE v_supp_airline VARCHAR(50);
+    DECLARE v_supp_tail VARCHAR(50);
+    DECLARE v_departing_airport CHAR(3);
+    DECLARE v_arriving_airport CHAR(3);
+    DECLARE v_airport_location VARCHAR(50);
+    DECLARE v_airplane_location VARCHAR(50);
+    DECLARE v_seat_cap INT;
+    DECLARE v_flight_cost INT;
+    DECLARE passenger_boarded_ct INT;
+
+    IF NOT EXISTS (SELECT 1 FROM flight WHERE flightID = ip_flightID) THEN
+        LEAVE sp_main;
+    END IF;
+
+    SELECT progress, routeID, airplane_status, support_airline, support_tail, cost
+    INTO v_current_leg, v_route_id, v_airplane_status, v_supp_airline, v_supp_tail, v_flight_cost
+    FROM flight WHERE flightID = ip_flightID;
+
+    IF v_airplane_status = 'in_flight' THEN
+        LEAVE sp_main;
+    END IF;
+
+    SELECT COUNT(*) INTO v_total_legs FROM route_path WHERE routeID = v_route_id;
+
+    IF v_current_leg &gt;= v_total_legs THEN
+        LEAVE sp_main;
+    END IF;
+
+    SELECT l.departure, l.arrival INTO v_departing_airport, v_arriving_airport
+    FROM route_path rp JOIN leg l ON rp.legID = l.legID
+    WHERE rp.routeID = v_route_id AND rp.sequence = v_current_leg + 1;
+
+    SELECT locationID INTO v_airport_location FROM airport WHERE airportID = v_departing_airport;
+
+    SELECT locationID, seat_capacity INTO v_airplane_location, v_seat_cap
+    FROM airplane WHERE airlineID = v_supp_airline AND tail_num = v_supp_tail;
+
+    SELECT COUNT(*) INTO passenger_boarded_ct FROM person
+    JOIN passenger ON person.personID = passenger.personID
+    JOIN passenger_vacations pv ON person.personID = pv.personID
+    WHERE person.locationID = v_airport_location PV.sequence = 1 
+      AND pv.airportID = v_arriving_airport AND passenger.funds &gt;= v_flight_cost;
+
+    IF passenger_boarded_ct &gt; v_seat_cap THEN
+        LEAVE sp_main;
+    END IF;
+
+    UPDATE passenger
+    JOIN person ON passenger.personID = person.personID
+    JOIN passenger_vacations pv ON passenger.personID = pv.personID
+    SET passenger.funds = passenger.funds - v_flight_cost, person.locationID = v_airplane_location
+    WHERE person.locationID = v_airport_location PV.sequence = 1 
+      AND pv.airportID = v_arriving_airport AND passenger.funds &gt;= v_flight_cost;
+END //
+DELIMITER ;</pre>
+                </div>
+
+                <div>
+                    <span class="text-cyberpink font-bold block mb-1">-- 09. PASSENGERS_DISEMBARK PROCEDURE</span>
+                    <pre class="bg-white p-4 border border-zinc-200 overflow-x-auto">DROP PROCEDURE IF EXISTS passengers_disembark;
+DELIMITER //
+CREATE PROCEDURE passengers_disembark (IN ip_flightID VARCHAR(50))
+sp_main: BEGIN
+    DECLARE v_route_id VARCHAR(50);
+    DECLARE v_current_leg_id VARCHAR(50);
+    DECLARE v_flight_progress INT;
+    DECLARE v_arrival_airport_code CHAR(3);
+    DECLARE v_arrival_location_id VARCHAR(50);
+    DECLARE v_support_airline_id VARCHAR(50);
+    DECLARE v_support_tail_number VARCHAR(50);
+    DECLARE v_plane_location_id VARCHAR(50);
+
+    IF NOT EXISTS (SELECT 1 FROM flight WHERE flightID = ip_flightID) THEN
+        LEAVE sp_main;
+    END IF;
+    IF (SELECT airplane_status FROM flight WHERE flightID = ip_flightID) = 'in_flight' THEN
+        LEAVE sp_main;
+    END IF;
+
+    SELECT routeID, progress, support_airline, support_tail
+    INTO v_route_id, v_flight_progress, v_support_airline_id, v_support_tail_number
+    FROM flight WHERE flightID = ip_flightID;
+
+    SELECT leg.legID, leg.arrival INTO v_current_leg_id, v_arrival_airport_code
+    FROM route_path JOIN leg ON route_path.legID = leg.legID
+    WHERE routeID = v_route_id AND sequence = v_flight_progress;
+
+    SELECT locationID INTO v_arrival_location_id FROM airport WHERE airportID = v_arrival_airport_code;
+    SELECT locationID INTO v_plane_location_id FROM airplane WHERE airlineID = v_support_airline_id AND tail_num = v_support_tail_number;
+
+    UPDATE person JOIN passenger_vacations pv ON person.personID = pv.personID
+    SET person.locationID = v_arrival_location_id
+    WHERE person.locationID = v_plane_location_id AND pv.sequence = 1 AND pv.airportID = v_arrival_airport_code;
+
+    DELETE FROM passenger_vacations WHERE sequence = 1 AND airportID = v_arrival_airport_code
+    AND personID IN (SELECT personID FROM person WHERE locationID = v_arrival_location_id);
+END //
+DELIMITER ;</pre>
+                </div>
+
+                <div>
+                    <span class="text-cyberpink font-bold block mb-1">-- 10. ASSIGN_PILOT PROCEDURE</span>
+                    <pre class="bg-white p-4 border border-zinc-200 overflow-x-auto">DROP PROCEDURE IF EXISTS assign_pilot;
+DELIMITER //
+CREATE PROCEDURE assign_pilot (IN in_flight_id VARCHAR(50), IN in_person_id VARCHAR(50))
+main_block: BEGIN
+    DECLARE v_plane_loc VARCHAR(50);
+    DECLARE v_pilot_loc VARCHAR(50);
+    DECLARE v_plane_type VARCHAR(100);
+    DECLARE v_airline_id VARCHAR(50);
+    DECLARE v_tail_num VARCHAR(50);
+    DECLARE v_route_id VARCHAR(50);
+    DECLARE v_progress INT DEFAULT 0;
+    DECLARE v_leg_id VARCHAR(50);
+    DECLARE v_total_legs INT;
+    DECLARE v_airport_id CHAR(3);
+    DECLARE v_flight_status VARCHAR(100);
+    DECLARE v_plane_id VARCHAR(50);
+
+    IF (SELECT COUNT(*) FROM flight WHERE flightID = in_flight_id) = 0 THEN LEAVE main_block; END IF;
+    IF (SELECT COUNT(*) FROM person WHERE personID = in_person_id) = 0 THEN LEAVE main_block; END IF;
+
+    SELECT support_airline, support_tail, routeID, progress, airplane_status
+    INTO v_airline_id, v_tail_num, v_route_id, v_progress, v_flight_status
+    FROM flight WHERE flightID = in_flight_id;
+
+    IF v_flight_status = 'in_flight' THEN LEAVE main_block; END IF;
+    SELECT a.plane_type, a.locationID INTO v_plane_type, v_plane_id FROM airplane a WHERE a.airlineID = v_airline_id AND a.tail_num = v_tail_num;
+    IF (SELECT COUNT(*) FROM pilot_licenses WHERE personID = in_person_id AND license = v_plane_type) = 0 THEN LEAVE main_block; END IF;
+    SELECT COUNT(*) INTO v_total_legs FROM route_path WHERE routeID = v_route_id;
+    IF v_progress = v_total_legs THEN LEAVE main_block; END IF;
+
+    IF v_progress = 0 THEN
+        SELECT rp.legID INTO v_leg_id FROM route_path rp WHERE rp.routeID = v_route_id AND rp.sequence = 1;
+        SELECT l.departure INTO v_airport_id FROM leg l WHERE l.legID = v_leg_id;
+    ELSE
+        SELECT rp.legID INTO v_leg_id FROM route_path rp WHERE rp.routeID = v_route_id AND rp.sequence = v_progress;
+        SELECT l.arrival INTO v_airport_id FROM leg l WHERE l.legID = v_leg_id;
+    END IF;
+
+    SELECT a.locationID INTO v_plane_loc FROM airport a WHERE a.airportID = v_airport_id;
+    SELECT p.locationID INTO v_pilot_loc FROM person p WHERE p.personID = in_person_id;
+
+    IF v_plane_loc != v_pilot_loc THEN LEAVE main_block; END IF;
+    IF (SELECT COUNT(*) FROM pilot p WHERE p.personID = in_person_id AND p.commanding_flight IS NULL) = 0 THEN LEAVE main_block; END IF;
+
+    UPDATE pilot SET commanding_flight = in_flight_id WHERE personID = in_person_id;
+    UPDATE person SET locationID = v_plane_id WHERE personID = in_person_id;
+END //
+DELIMITER ;</pre>
+                </div>
+
+                <div>
+                    <span class="text-cyberpink font-bold block mb-1">-- 11. RECYCLE_CREW PROCEDURE</span>
+                    <pre class="bg-white p-4 border border-zinc-200 overflow-x-auto">DROP PROCEDURE IF EXISTS recycle_crew;
+DELIMITER //
+CREATE PROCEDURE recycle_crew (IN ip_flightid VARCHAR(50))
+sp_main: BEGIN
+    DECLARE v_current_leg_num INTEGER DEFAULT 0;
+    DECLARE v_total_legs INTEGER DEFAULT 0;
+    DECLARE v_route_id VARCHAR(50) DEFAULT NULL;
+    DECLARE v_current_leg_id VARCHAR(50) DEFAULT NULL;
+    DECLARE v_arrival_airport_id CHAR(3) DEFAULT NULL;
+    DECLARE v_support_airline VARCHAR(50) DEFAULT NULL;
+    DECLARE v_support_tail VARCHAR(50) DEFAULT NULL;
+    DECLARE v_plane_location VARCHAR(50) DEFAULT NULL;
+    DECLARE v_port_location_id VARCHAR(50) DEFAULT NULL;
+    DECLARE v_num_passengers INTEGER DEFAULT 0;
+    DECLARE v_current_status VARCHAR(100) DEFAULT NULL;
+    
+    IF NOT EXISTS (SELECT 1 FROM flight WHERE flightid = ip_flightid) THEN LEAVE sp_main; END IF;
+    
+    SELECT f.progress, f.airplane_status, f.support_airline, f.support_tail, f.routeid,
+          (SELECT COUNT(*) FROM route_path WHERE routeid = f.routeid)
+    INTO v_current_leg_num, v_current_status, v_support_airline, v_support_tail, v_route_id, v_total_legs
+    FROM flight f WHERE f.flightid = ip_flightid;
+    
+    IF v_current_status = 'in_flight' OR v_current_leg_num != v_total_legs THEN LEAVE sp_main; END IF;
+    
+    SELECT locationid INTO v_plane_location FROM airplane WHERE airlineid = v_support_airline AND tail_num = v_support_tail;
+    SELECT COUNT(*) INTO v_num_passengers FROM person WHERE locationid = v_plane_location AND personid IN (SELECT personid FROM passenger);
+    
+    IF v_num_passengers &gt; 0 THEN LEAVE sp_main; END IF;
+    
+    SELECT legid INTO v_current_leg_id FROM route_path WHERE routeid = v_route_id AND sequence = v_current_leg_num;
+    SELECT arrival INTO v_arrival_airport_id FROM leg WHERE legid = v_current_leg_id;
+    SELECT locationid INTO v_port_location_id FROM airport WHERE airportid = v_arrival_airport_id;
+    
+    UPDATE person SET locationid = v_port_location_id WHERE personid IN (SELECT personid FROM pilot WHERE commanding_flight = ip_flightid);
+    UPDATE pilot SET commanding_flight = NULL WHERE commanding_flight = ip_flightid;
+END //
+DELIMITER ;</pre>
+                </div>
+
+                <div>
+                    <span class="text-cyberpink font-bold block mb-1">-- 12. RETIRE_FLIGHT PROCEDURE</span>
+                    <pre class="bg-white p-4 border border-zinc-200 overflow-x-auto">DROP PROCEDURE IF EXISTS retire_flight;
+DELIMITER //
+CREATE PROCEDURE retire_flight(IN ip_flightID VARCHAR(50))
+sp_main: BEGIN
+    DECLARE v_flight_exists BOOL DEFAULT FALSE;
+    DECLARE v_current_status VARCHAR(100);
+    DECLARE v_current_progress INT DEFAULT 0;
+    DECLARE v_total_legs INT DEFAULT 0;
+    DECLARE v_airplane_loc VARCHAR(50);
+    DECLARE v_people_on_board INT DEFAULT 0;
+    DECLARE v_route_id VARCHAR(50);
+    DECLARE v_supp_airline VARCHAR(50);
+    DECLARE v_supp_tail VARCHAR(50);
+  
+    SELECT airplane_status, progress, routeID, support_airline, support_tail
+    INTO v_current_status, v_current_progress, v_route_id, v_supp_airline, v_supp_tail
+    FROM flight WHERE flightID = ip_flightID;
+  
+    SELECT EXISTS(SELECT 1 FROM flight WHERE flightID = ip_flightID) INTO v_flight_exists;
+    IF v_flight_exists = FALSE THEN LEAVE sp_main; END IF;
+    IF v_current_status = 'in_flight' THEN LEAVE sp_main; END IF;
+
+    SELECT COUNT(*) INTO v_total_legs FROM route_path WHERE routeID = v_route_id;
+    IF v_current_progress &lt; v_total_legs THEN LEAVE sp_main; END IF;
+
+    SELECT locationID INTO v_airplane_loc FROM airplane WHERE airlineID = v_supp_airline AND tail_num = v_supp_tail;
+    SELECT COUNT(*) INTO v_people_on_board FROM person WHERE locationID = v_airplane_loc;
+    
+    IF v_people_on_board &gt; 0 THEN LEAVE sp_main; END IF;
+
+    DELETE FROM flight WHERE flightID = ip_flightID;
+END //
+DELIMITER ;</pre>
+                </div>
+
+                <div>
+                    <span class="text-cyberpink font-bold block mb-1">-- 13. SIMULATION_CYCLE PROCEDURE</span>
+                    <pre class="bg-white p-4 border border-zinc-200 overflow-x-auto">DROP PROCEDURE IF EXISTS simulation_cycle;
+DELIMITER //
+CREATE PROCEDURE simulation_cycle()
+sp_main: BEGIN
+    DECLARE v_flightID VARCHAR(50);
+    DECLARE v_airplane_status VARCHAR(100);
+    DECLARE v_routeID VARCHAR(50);
+    DECLARE v_progress INT;
+    DECLARE v_max_leg_seq INT;
+
+    SELECT flightID INTO v_flightID FROM flight
+    ORDER BY next_time ASC, CASE airplane_status WHEN 'in_flight' THEN 0 WHEN 'on_ground' THEN 1 ELSE 2 END, flightID ASC LIMIT 1;
+
+    SELECT airplane_status, routeID, progress INTO v_airplane_status, v_routeID, v_progress FROM flight WHERE flightID = v_flightID;
+    SELECT MAX(sequence) INTO v_max_leg_seq FROM route_path WHERE routeID = v_routeID;
+
+    IF v_airplane_status = 'in_flight' THEN
+        CALL flight_landing(v_flightID);
+        CALL passengers_disembark(v_flightID);
+
+        IF v_progress = v_max_leg_seq THEN
+            CALL recycle_crew(v_flightID);
+            CALL retire_flight(v_flightID);
+        END IF;
+    ELSEIF v_airplane_status = 'on_ground' THEN
+        IF v_progress = v_max_leg_seq THEN
+            CALL recycle_crew(v_flightID);
+            CALL retire_flight(v_flightID);
+        ELSE
+            CALL passengers_board(v_flightID);
+            CALL flight_takeoff(v_flightID);
+        END IF;
+    END IF;
+END //
+DELIMITER ;</pre>
+                </div>
+
+                <div>
+                    <span class="text-cyberpink font-bold block mb-1">-- 14. FLIGHTS_IN_THE_AIR VIEW</span>
+                    <pre class="bg-white p-4 border border-zinc-200 overflow-x-auto">CREATE OR REPLACE VIEW flights_in_the_air (
+    departing_from, arriving_at, num_flights, flight_list, earliest_arrival, latest_arrival, airplane_list
+) AS
+SELECT
+    l.departure AS departing_from,
+    l.arrival AS arriving_at,
+    COUNT(*) AS num_flights,
+    GROUP_CONCAT(f.flightID ORDER BY f.flightID SEPARATOR ',') AS flight_list,
+    MIN(f.next_time) AS earliest_arrival,
+    MAX(f.next_time) AS latest_arrival,
+    GROUP_CONCAT(ap.locationID ORDER BY f.flightID SEPARATOR ',') AS airplane_list
+FROM flight f
+JOIN route_path rp ON f.routeID = rp.routeID AND f.progress = rp.sequence
+JOIN leg l ON rp.legID = l.legID
+JOIN airplane ap ON f.support_airline = ap.airlineID AND f.support_tail = ap.tail_num
+WHERE f.airplane_status = 'in_flight'
+GROUP BY l.departure, l.arrival;</pre>
+                </div>
+
+                <div>
+                    <span class="text-cyberpink font-bold block mb-1">-- 15. FLIGHTS_ON_THE_GROUND VIEW</span>
+                    <pre class="bg-white p-4 border border-zinc-200 overflow-x-auto">CREATE OR REPLACE VIEW flights_on_the_ground AS
+WITH on_ground_flights AS (
+    SELECT f.*, a.locationID AS locID FROM flight f
+    JOIN airplane a ON (f.support_airline, f.support_tail) = (a.airlineID, a.tail_num)
+    WHERE f.airplane_status = 'on_ground'
+),
+flight_departures AS (
+    SELECT f.flightID, f.routeID, f.progress,
+        CASE WHEN f.progress = 0 THEN (
+                SELECT l.departure FROM route_path rp JOIN leg l ON rp.legID = l.legID
+                WHERE rp.routeID = f.routeID AND rp.sequence = 1 LIMIT 1
+            ) ELSE (
+                SELECT l.arrival FROM route_path rp JOIN leg l ON rp.legID = l.legID
+                WHERE rp.routeID = f.routeID AND rp.sequence = f.progress LIMIT 1
+            ) END AS departing_from
+    FROM on_ground_flights f
+),
+flight_grouping AS (
+    SELECT f.flightID, f.locID, d.departing_from FROM on_ground_flights f
+    JOIN flight_departures d ON f.flightID = d.flightID
+),
+num_flights_grouping AS (
+    SELECT d.departing_from, COUNT(*) AS num_flights FROM flight_grouping d GROUP BY d.departing_from
+),
+arrival_grouping AS (
+    SELECT d.departing_from, MIN(f.next_time) AS earliest_arrival, MAX(f.next_time) AS latest_arrival
+    FROM flight_grouping d JOIN on_ground_flights f ON d.flightID = f.flightID GROUP BY d.departing_from
+)
+SELECT fg.departing_from, nfg.num_flights, GROUP_CONCAT(fg.flightID) AS flight_list,
+    ag.earliest_arrival, ag.latest_arrival, GROUP_CONCAT(fg.locID) AS airplane_list
+FROM flight_grouping fg
+JOIN num_flights_grouping nfg ON fg.departing_from = nfg.departing_from
+JOIN arrival_grouping ag ON fg.departing_from = ag.departing_from
+GROUP BY fg.departing_from, nfg.num_flights, ag.earliest_arrival, ag.latest_arrival;</pre>
+                </div>
+
+                <div>
+                    <span class="text-cyberpink font-bold block mb-1">-- 16. PEOPLE_IN_THE_AIR VIEW</span>
+                    <pre class="bg-white p-4 border border-zinc-200 overflow-x-auto">CREATE OR REPLACE VIEW people_in_the_air (
+    departing_from, arriving_at, num_airplanes, airplane_list, flight_list,
+    earliest_arrival, latest_arrival, num_pilots, num_passengers, joint_pilots_passengers, person_list
+) AS
+SELECT
+    l.departure AS departing_from, l.arrival AS arriving_at, COUNT(DISTINCT f.flightID) AS num_airplanes,
+    GROUP_CONCAT(DISTINCT ap.locationID ORDER BY ap.locationID SEPARATOR ',') AS airplane_list,
+    GROUP_CONCAT(DISTINCT f.flightID ORDER BY f.flightID SEPARATOR ',') AS flight_list,
+    MIN(f.next_time) AS earliest_arrival, MAX(f.next_time) AS latest_arrival,
+    COUNT(DISTINCT pl.personID) AS num_pilots, COUNT(DISTINCT ps.personID) AS num_passengers,
+    COUNT(DISTINCT COALESCE(pl.personID, ps.personID)) AS joint_pilots_passengers,
+    GROUP_CONCAT(DISTINCT p.personID ORDER BY p.personID SEPARATOR ',') AS person_list
+FROM flight f
+JOIN route_path rp ON f.routeID = rp.routeID AND f.progress = rp.sequence
+JOIN leg l ON rp.legID = l.legID
+JOIN airplane ap ON ap.airlineID = f.support_airline AND ap.tail_num = f.support_tail
+JOIN person p ON p.locationID = ap.locationID
+LEFT JOIN pilot pl ON p.personID = pl.personID
+LEFT JOIN passenger ps ON p.personID = ps.personID
+WHERE f.airplane_status = 'in_flight'
+GROUP BY l.departure, l.arrival;</pre>
+                </div>
+
+                <div>
+                    <span class="text-cyberpink font-bold block mb-1">-- 17. PEOPLE_ON_THE_GROUND VIEW</span>
+                    <pre class="bg-white p-4 border border-zinc-200 overflow-x-auto">CREATE OR REPLACE VIEW people_on_the_ground (
+    departing_from, airport, airport_name, city, state, country, num_pilots, num_passengers, joint_pilots_passengers, person_list
+) AS
+SELECT
+    a.airportID AS departing_from, a.locationID AS airport, a.airport_name, a.city, a.state, a.country,
+    COUNT(DISTINCT pl.personID) AS num_pilots, COUNT(DISTINCT ps.personID) AS num_passengers,
+    COUNT(DISTINCT COALESCE(pl.personID, ps.personID)) AS joint_pilots_passengers,
+    GROUP_CONCAT(DISTINCT p.personID ORDER BY p.personID SEPARATOR ',') AS person_list
+FROM airport a
+JOIN person p ON p.locationID = a.locationID
+LEFT JOIN pilot pl ON pl.personID = p.personID
+LEFT JOIN passenger ps ON ps.personID = p.personID
+GROUP BY a.airportID, a.locationID, a.airport_name, a.city, a.state, a.country;</pre>
+                </div>
+
+                <div>
+                    <span class="text-cyberpink font-bold block mb-1">-- 18. ROUTE_SUMMARY VIEW</span>
+                    <pre class="bg-white p-4 border border-zinc-200 overflow-x-auto">CREATE OR REPLACE VIEW route_summary (
+    route, num_legs, leg_sequence, route_length, num_flights, flight_list, airport_sequence
+) AS
+SELECT
+    r.routeID AS route, COUNT(rp.legID) AS num_legs,
+    GROUP_CONCAT(rp.legID ORDER BY rp.sequence SEPARATOR ', ') AS leg_sequence,
+    SUM(l.distance) AS route_length,
+    (SELECT COUNT(*) FROM flight f WHERE f.routeID = r.routeID) AS num_flights,
+    (SELECT GROUP_CONCAT(f.flightID ORDER BY f.flightID SEPARATOR ', ') FROM flight f WHERE f.routeID = r.routeID) AS flight_list,
+    GROUP_CONCAT(CONCAT(l.departure, '-&gt;', l.arrival) ORDER BY rp.sequence SEPARATOR ', ') AS airport_sequence
+FROM route r
+JOIN route_path rp ON r.routeID = rp.routeID
+JOIN leg l ON rp.legID = l.legID
+GROUP BY r.routeID;</pre>
+                </div>
+
+                <div>
+                    <span class="text-cyberpink font-bold block mb-1">-- 19. ALTERNATIVE_AIRPORTS VIEW</span>
+                    <pre class="bg-white p-4 border border-zinc-200 overflow-x-auto">CREATE OR REPLACE VIEW alternative_airports (
+    city, state, country, num_airports, airport_code_list, airport_name_list
+) AS
+SELECT city, state, country, COUNT(*) AS num_airports,
+    GROUP_CONCAT(airportID ORDER BY airportID SEPARATOR ',') AS airport_code_list,
+    GROUP_CONCAT(airport_name ORDER BY airportID SEPARATOR ',') AS airport_name_list
+FROM airport GROUP BY city, state, country HAVING COUNT(*) &gt; 1;</pre>
+                </div>
+
+            </div>
+            
+            <div class="border-t tech-border p-4 bg-zinc-50 flex justify-between font-mono text-[10px] text-zinc-400">
+                <span>Procedural Engine Module Executed // SQL InnoDB Verified</span>
+                <span>© Nitya Patil, 2025</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="pdf-modal" class="hidden fixed inset-0 bg-ink/95 backdrop-blur-md z-50 flex flex-col justify-between transition-all duration-300 select-none modal-enter">
+        <div class="p-6 font-mono text-xs uppercase tracking-widest flex justify-between items-center text-cream border-b border-zinc-800">
+            <div class="flex items-center gap-2">
+                <span class="text-cyberpink font-bold">// LAB DOCUMENTATION:</span>
+                <span id="pdf-modal-title" class="hidden md:inline">research_archive.pdf</span>
+            </div>
+            <button onclick="closePdfModal()" class="font-black text-sm hover:text-cyberpink tracking-tighter text-cream" aria-label="Close PDF viewer">[ CLOSE × ]</button>
+        </div>
+        <div class="flex-grow p-4 bg-zinc-900 flex justify-center overflow-hidden">
+            <iframe id="pdf-frame" src="" class="w-full max-w-5xl h-full border border-zinc-800 shadow-2xl bg-white rounded-sm" title="Research document viewer"></iframe>
+        </div>
+        <div class="p-4 bg-zinc-950 border-t border-zinc-900 text-center font-mono text-xs md:text-[10px] text-zinc-500 tracking-wider">
+            Industrial Engineering Analytics Pipeline // Interactive Document Reader Execution State
+        </div>
+    </div>
+
+    <button id="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top" class="fixed bottom-6 right-6 bg-cyberpink text-cream p-3 rounded-full hover:bg-ink transition-all z-40 font-bold">↑</button>
+
+    <footer class="border-t tech-border bg-ink text-zinc-500 font-mono text-xs md:text-[10px] uppercase tracking-widest px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-2">
+        <div>© Nitya Patil, 2025 — Present. All Rights Reserved.</div>
+        <div class="text-zinc-400">Brutalist Workspace Engine v5.0</div>
+    </footer>
+
+    <script>
+        // ============================================================================
+        // ACCESSIBILITY & PERFORMANCE FEATURES
+        // ============================================================================
+
+        // Check for prefers-reduced-motion
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const canvas = document.getElementById('global-interaction-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let mouse = { x: 0, y: 0 };
+        let isCanvasVisible = true;
+        let animationEnabled = !prefersReducedMotion;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Canvas visibility observer for performance
+        const canvasObserver = new IntersectionObserver((entries) => {
+            isCanvasVisible = entries[0].isIntersecting;
+        });
+        canvasObserver.observe(canvas);
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        window.addEventListener('click', (e) => {
+            if (animationEnabled) generateExplosion(e.clientX, e.clientY);
+        });
+
+        function triggerNameBurst(e) {
+            if (!animationEnabled) return;
+            const rect = e.currentTarget.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            generateExplosion(centerX, centerY);
+        }
+
+        let explosionPoints = [];
+        function generateExplosion(x, y) {
+            for(let i=0; i<12; i++) {
+                explosionPoints.push({
+                    x: x,
+                    y: y,
+                    age: 0,
+                    maxAge: 20,
+                    baseRadius: Math.random() * 14 + 10,
+                    petals: 6,
+                    vx: (Math.random() - 0.5) * 8,
+                    vy: (Math.random() - 0.5) * 8
+                });
+            }
+        }
+
+        function drawFlower(x, y, radius, petals, alpha) {
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.fillStyle = `rgba(255, 59, 147, ${alpha * 0.25})`;
+            
+            for (let i = 0; i < petals; i++) {
+                ctx.beginPath();
+                ctx.ellipse(0, -radius * 1.2, radius * 0.5, radius, 0, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.rotate((Math.PI * 2) / petals);
+            }
+            
+            ctx.beginPath();
+            ctx.arc(0, 0, radius * 0.4, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(251, 249, 245, ${alpha * 0.7})`;
+            ctx.fill();
+            
+            ctx.restore();
+        }
+
+        function animateGlobalCanvas() {
+            if (!animationEnabled || !isCanvasVisible) {
+                requestAnimationFrame(animateGlobalCanvas);
+                return;
+            }
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            drawFlower(mouse.x, mouse.y, 10, 6, 1.0);
+
+            for (let i = 0; i < explosionPoints.length; i++) {
+                let p = explosionPoints[i];
+                p.age++;
+                p.x += p.vx;
+                p.y += p.vy;
+
+                let alpha = 1 - (p.age / p.maxAge);
+                if (alpha <= 0) {
+                    explosionPoints.splice(i, 1);
+                    i--;
+                    continue;
+                }
+
+                drawFlower(p.x, p.y, p.baseRadius * alpha, p.petals, alpha);
+            }
+
+            requestAnimationFrame(animateGlobalCanvas);
+        }
+        animateGlobalCanvas();
+
+        // ============================================================================
+        // KEYBOARD NAVIGATION & MODAL MANAGEMENT
+        // ============================================================================
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        // Close modals with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal('resume-modal');
+                closeModal('diagram-modal');
+                closeModal('code-modal');
+                closeModal('pdf-modal');
+            }
+        });
+
+        // ============================================================================
+        // GRID TOGGLE & WORKSPACE NAVIGATION
+        // ============================================================================
+
+        function toggleSubGrid(targetToShow, targetsToHide) {
+            const showElement = document.getElementById(targetToShow);
+            targetsToHide.forEach(id => {
+                document.getElementById(id).classList.add('hidden');
+            });
+            if(showElement.classList.contains('hidden')) {
+                showElement.classList.remove('hidden');
+                showElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            } else {
+                showElement.classList.add('hidden');
+            }
+        }
+
+        function closeGrid(gridId) {
+            document.getElementById(gridId).classList.add('hidden');
+        }
+
+        function showWorkspace(contentId) {
+            document.getElementById('home-view').classList.add('hidden');
+            document.getElementById('case-view').classList.remove('hidden');
+            
+            const items = document.querySelectorAll('.workspace-content');
+            items.forEach(item => item.classList.add('hidden'));
+            
+            document.getElementById(contentId).classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showHome(event) {
+            if(event && event.target.getAttribute('href') !== '#') {
+                if(!document.getElementById('home-view').classList.contains('hidden')) return;
+            }
+            if(event) event.preventDefault();
+            document.getElementById('case-view').classList.add('hidden');
+            document.getElementById('home-view').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ============================================================================
+        // MODAL FUNCTIONS WITH ANIMATION & ESCAPE KEY SUPPORT
+        // ============================================================================
+
+        function openResumeModal() { 
+            document.getElementById('resume-modal').classList.remove('hidden'); 
+            document.body.classList.add('overflow-hidden'); 
+        }
+        function closeResumeModal() { 
+            closeModal('resume-modal');
+        }
+
+        function openDiagramModal() { 
+            document.getElementById('diagram-modal').classList.remove('hidden'); 
+            document.body.classList.add('overflow-hidden'); 
+        }
+        function closeDiagramModal() { 
+            closeModal('diagram-modal');
+        }
+
+        function openCodeModal() { 
+            document.getElementById('code-modal').classList.remove('hidden'); 
+            document.body.classList.add('overflow-hidden'); 
+        }
+        function closeCodeModal() { 
+            closeModal('code-modal');
+        }
+
+        function openPdfModal(pdfPath, titleLabel) {
+            document.getElementById('pdf-modal-title').textContent = pdfPath.toLowerCase();
+            document.getElementById('pdf-frame').src = pdfPath;
+            document.getElementById('pdf-modal').classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closePdfModal() {
+            closeModal('pdf-modal');
+            document.getElementById('pdf-frame').src = '';
+        }
+
+        // ============================================================================
+        // TIMEZONE-AWARE CLOCK
+        // ============================================================================
+
+        function updateClock() {
+            const now = new Date();
+            // Show Chicago time (user is at Georgia Tech)
+            const chicagoTime = now.toLocaleTimeString('en-US', { 
+                timeZone: 'America/Chicago', 
+                hour12: false,
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+            document.getElementById('live-clock').textContent = chicagoTime;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // ============================================================================
+        // SCROLL TO TOP BUTTON
+        // ============================================================================
+
+        const scrollButton = document.getElementById('scroll-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollButton.classList.add('visible');
+            } else {
+                scrollButton.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body></html>
